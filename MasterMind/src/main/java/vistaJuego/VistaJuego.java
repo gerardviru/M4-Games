@@ -1,14 +1,9 @@
 package vistaJuego;
 
-import java.awt.BorderLayout;
-
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.Window.Type;
-import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JEditorPane;
 import java.awt.Color;
@@ -21,6 +16,7 @@ import java.awt.event.MouseListener;
 public class VistaJuego extends JFrame {
 
 	private JPanel contentPane;
+	
 
 	/**
 	 * Launch the application.
@@ -37,11 +33,15 @@ public class VistaJuego extends JFrame {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the frame.
 	 */
 	public VistaJuego() {
+		
+		Controlador controlador = new Controlador();
+		controlador.combinacionSecreta();
 		setTitle("MasterMind");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(450, 200, 900, 700);
@@ -51,7 +51,7 @@ public class VistaJuego extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(593, 107, 186, 74);
+		panel.setBounds(658, 106, 186, 74);
 		panel.setOpaque(false);
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -87,7 +87,7 @@ public class VistaJuego extends JFrame {
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
 		panel_1.setOpaque(false);
-		panel_1.setBounds(593, 251, 186, 74);
+		panel_1.setBounds(658, 248, 186, 74);
 		contentPane.add(panel_1);
 		
 		JLabel lblCombinacinSecreta = new JLabel("Combinación Secreta");
@@ -97,12 +97,13 @@ public class VistaJuego extends JFrame {
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setLayout(null);
 		panel_1_1.setOpaque(false);
-		panel_1_1.setBounds(20, 107, 408, 74);
+		panel_1_1.setBounds(20, 47, 425, 74);
 		contentPane.add(panel_1_1);
 		
 		JEditorPane editorPane_4 = new JEditorPane();
 		editorPane_4.setEditable(false);
 		editorPane_4.setBackground(Color.WHITE);
+	
 		editorPane_4.addMouseListener(new MouseListener() {
 			Controlador controlador = new Controlador();
 			public void mouseClicked(MouseEvent e) {
@@ -135,6 +136,7 @@ public class VistaJuego extends JFrame {
 		});
 		editorPane_4.setBounds(35, 30, 21, 20);
 		panel_1_1.add(editorPane_4);
+		
 		
 		JEditorPane editorPane_5 = new JEditorPane();
 		editorPane_5.setBounds(98, 30, 21, 20);
@@ -242,11 +244,30 @@ public class VistaJuego extends JFrame {
 		JButton btnNewButton = new JButton("Comprobar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				controlador.validacion(editorPane_4.getBackground(),controlador.getColoresSecretos().get(0));
+				controlador.validacion(editorPane_5.getBackground(),controlador.getColoresSecretos().get(1));
+				controlador.validacion(editorPane_6.getBackground(),controlador.getColoresSecretos().get(2));
+				controlador.validacion(editorPane_7.getBackground(),controlador.getColoresSecretos().get(3));
 			}
 		});
 		btnNewButton.setBounds(287, 30, 116, 23);
 		panel_1_1.add(btnNewButton);
+		
+		JEditorPane verificado1 = new JEditorPane();
+		verificado1.setBounds(451, 160, 26, 20);
+		contentPane.add(verificado1);
+		
+		JEditorPane verificado2 = new JEditorPane();
+		verificado2.setBounds(486, 160, 26, 20);
+		contentPane.add(verificado2);
+		
+		JEditorPane verificado3 = new JEditorPane();
+		verificado3.setBounds(527, 160, 26, 20);
+		contentPane.add(verificado3);
+		
+		JEditorPane verificado4 = new JEditorPane();
+		verificado4.setBounds(563, 160, 26, 20);
+		contentPane.add(verificado4);
 		
 	}
 }
