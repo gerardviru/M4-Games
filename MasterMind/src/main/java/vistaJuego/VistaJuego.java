@@ -56,15 +56,15 @@ public class VistaJuego extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
+		JLabel lblNewLabel = new JLabel("Colores Disponibles");
+		lblNewLabel.setBounds(10, 11, 166, 14);
+		panel.add(lblNewLabel);
+		
 		JEditorPane editorPane = new JEditorPane();
 		editorPane.setEditable(false);
 		editorPane.setBackground(Color.MAGENTA);
 		editorPane.setBounds(10, 36, 21, 20);
 		panel.add(editorPane);
-		
-		JLabel lblNewLabel = new JLabel("Colores Disponibles");
-		lblNewLabel.setBounds(10, 11, 166, 14);
-		panel.add(lblNewLabel);
 		
 		JEditorPane editorPane_1 = new JEditorPane();
 		editorPane_1.setEditable(false);
@@ -97,16 +97,16 @@ public class VistaJuego extends JFrame {
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setLayout(null);
 		panel_1_1.setOpaque(false);
-		panel_1_1.setBounds(22, 107, 443, 74);
+		panel_1_1.setBounds(20, 107, 408, 74);
 		contentPane.add(panel_1_1);
 		
 		JEditorPane editorPane_4 = new JEditorPane();
 		editorPane_4.setEditable(false);
 		editorPane_4.setBackground(Color.WHITE);
 		editorPane_4.addMouseListener(new MouseListener() {
+			Controlador controlador = new Controlador();
 			public void mouseClicked(MouseEvent e) {
-					System.out.println(e.getButton());
-					
+					controlador.cambiarColor(e.getButton(),editorPane_4);
 			}
 
 			@Override
@@ -137,29 +137,116 @@ public class VistaJuego extends JFrame {
 		panel_1_1.add(editorPane_4);
 		
 		JEditorPane editorPane_5 = new JEditorPane();
+		editorPane_5.setBounds(98, 30, 21, 20);
+		panel_1_1.add(editorPane_5);
 		editorPane_5.setEditable(false);
 		editorPane_5.setBackground(Color.WHITE);
-		editorPane_5.setBounds(195, 30, 21, 20);
-		panel_1_1.add(editorPane_5);
+		editorPane_5.addMouseListener(new MouseListener() {
+			Controlador controlador = new Controlador();
+			public void mouseClicked(MouseEvent e) {
+					controlador.cambiarColor(e.getButton(),editorPane_5);
+			}
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
 		
 		JEditorPane editorPane_6 = new JEditorPane();
+		editorPane_6.setBounds(167, 30, 21, 20);
+		panel_1_1.add(editorPane_6);
 		editorPane_6.setEditable(false);
 		editorPane_6.setBackground(Color.WHITE);
-		editorPane_6.setBounds(265, 30, 21, 20);
-		panel_1_1.add(editorPane_6);
+		editorPane_6.addMouseListener(new MouseListener() {
+			Controlador controlador = new Controlador();
+			public void mouseClicked(MouseEvent e) {
+					controlador.cambiarColor(e.getButton(),editorPane_6);
+			}
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		JEditorPane editorPane_7 = new JEditorPane();
 		editorPane_7.setEditable(false);
 		editorPane_7.setBackground(Color.WHITE);
-		editorPane_7.setBounds(112, 30, 21, 20);
+		editorPane_7.addMouseListener(new MouseListener() {
+			Controlador controlador = new Controlador();
+			public void mouseClicked(MouseEvent e) {
+					controlador.cambiarColor(e.getButton(),editorPane_7);
+			}
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		editorPane_7.setBounds(231, 30, 21, 20);
 		panel_1_1.add(editorPane_7);
 		
 		JButton btnNewButton = new JButton("Comprobar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 			}
 		});
-		btnNewButton.setBounds(317, 27, 116, 23);
+		btnNewButton.setBounds(287, 30, 116, 23);
 		panel_1_1.add(btnNewButton);
+		
 	}
 }
