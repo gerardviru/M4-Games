@@ -103,9 +103,31 @@ public class VistaJuego extends JFrame {
 		JEditorPane editorPane_4 = new JEditorPane();
 		editorPane_4.setEditable(false);
 		editorPane_4.setBackground(Color.WHITE);
+		
+		
 		editorPane_4.addMouseListener(new MouseListener() {
+			
+			// Refactoriazar en un method
+			int valor = 0; 
 			public void mouseClicked(MouseEvent e) {
-					System.out.println(e.getButton());
+				Color[] colores = { Color.magenta, Color.cyan, Color.yellow, Color.green, Color.gray };
+				
+				// Dinamico segun la dificultad
+				int maxColor = 3;
+				
+				if (e.getButton() == 1) {
+					if (valor >= maxColor)
+						valor = 0; 
+					else
+						valor++;
+				} else if (e.getButton() == maxColor) {
+					if (valor <= 0)
+						valor = maxColor; 
+					else
+						valor--;
+				}		
+				editorPane_4.setBackground(colores[valor]);
+
 					
 			}
 
