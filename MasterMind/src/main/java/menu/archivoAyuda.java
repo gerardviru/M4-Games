@@ -43,7 +43,8 @@ public class archivoAyuda extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(archivoAyuda.class.getResource("/com/sun/javafx/webkit/prism/resources/mediaTimeThumb.png")));
 		setTitle("Master Mind");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 690, 437);
+		//setBounds(100, 100, 690, 437);
+		setBounds(450, 200, 900, 700);
 		
 		// Menu de navegación 
 		JMenuBar menuBar = new JMenuBar();
@@ -78,7 +79,9 @@ public class archivoAyuda extends JFrame {
 	        public void actionPerformed(ActionEvent ev) {
 	        	JOptionPane.showMessageDialog(mntmNewMenuItem_2, "Cómo jugar a  Mastermind\nMasterMind es un juego dificíl de ingenio, en el cual un jugador intenta asdivinar el código que se le ocurre a su oponente.\n"
 	        			+ "1. El juego crea un código aleatorio de colores.\n"
-	        			+ "2. "
+	        			+ "2. ghghghg"
+	        			+ "3. fggfhghfghfh "
+	        			+ "4. fdgfdgdfgdgg"
 	        			+ "");    
 	        }
 	    });
@@ -87,6 +90,12 @@ public class archivoAyuda extends JFrame {
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Acerca de ...");
 		mntmNewMenuItem_3.setIcon(new ImageIcon(archivoAyuda.class.getResource("/com/sun/java/swing/plaf/windows/icons/Inform.gif")));
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+	        public void actionPerformed(ActionEvent ev) {
+	        	JOptionPane.showMessageDialog(mntmNewMenuItem_3, " Creado TEAM-6\n" );    
+	        }
+	    });
+		
 		mnNewMenu_1.add(mntmNewMenuItem_3);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
