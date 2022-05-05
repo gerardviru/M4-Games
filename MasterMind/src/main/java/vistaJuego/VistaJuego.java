@@ -10,6 +10,7 @@ import java.awt.Window.Type;
 import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JEditorPane;
+import java.awt.Color;
 
 public class VistaJuego extends JFrame {
 
@@ -44,16 +45,33 @@ public class VistaJuego extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(663, 67, 186, 74);
+		panel.setBounds(665, 72, 186, 74);
+		panel.setOpaque(false);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JEditorPane editorPane = new JEditorPane();
-		editorPane.setBounds(10, 25, 21, 20);
+		editorPane.setBackground(Color.MAGENTA);
+		editorPane.setBounds(10, 36, 21, 20);
 		panel.add(editorPane);
 		
 		JLabel lblNewLabel = new JLabel("Colores Disponibles");
-		lblNewLabel.setBounds(566, 71, 98, 14);
-		contentPane.add(lblNewLabel);
+		lblNewLabel.setBounds(10, 11, 98, 14);
+		panel.add(lblNewLabel);
+		
+		JEditorPane editorPane_1 = new JEditorPane();
+		editorPane_1.setBackground(Color.YELLOW);
+		editorPane_1.setBounds(57, 36, 21, 20);
+		panel.add(editorPane_1);
+		
+		JEditorPane editorPane_2 = new JEditorPane();
+		editorPane_2.setBackground(Color.CYAN);
+		editorPane_2.setBounds(107, 36, 21, 20);
+		panel.add(editorPane_2);
+		
+		JEditorPane editorPane_3 = new JEditorPane();
+		editorPane_3.setBackground(Color.GREEN);
+		editorPane_3.setBounds(155, 36, 21, 20);
+		panel.add(editorPane_3);
 	}
 }
