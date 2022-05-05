@@ -79,7 +79,7 @@ public class archivoAyuda extends JFrame {
 	        public void actionPerformed(ActionEvent ev) {
 	        	JOptionPane.showMessageDialog(mntmNewMenuItem_2, "Cómo jugar a  Mastermind\nMasterMind es un juego dificíl de ingenio, en el cual un jugador intenta asdivinar el código que se le ocurre a su oponente.\n"
 	        			+ "1. El juego crea un código aleatorio de colores.\n"
-	        			+ "2. ghghghg"
+	        			+ "2. ghghghgfgfg"
 	        			+ "3. fggfhghfghfh "
 	        			+ "4. fdgfdgdfgdgg"
 	        			+ "");    
