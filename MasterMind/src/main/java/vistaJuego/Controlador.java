@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JEditorPane;
 
-
-
 public class Controlador {
 
 	private Color[] colores = { Color.magenta, Color.cyan, Color.yellow, Color.green, Color.gray };
@@ -20,8 +18,6 @@ public class Controlador {
 	public ArrayList<Color> getColoresSecretos() {
 		return coloresSecretos;
 	}
-
-
 
 	public void cambiarColor(int mouseButton,JEditorPane panel) {
 		
@@ -47,8 +43,6 @@ public class Controlador {
 			int numRandom = (int) (Math.random()*maxColor);
 			coloresSecretos.add(colores[numRandom]);
 		}
-		System.out.println(coloresSecretos.toString());
-	
 	}
 	
 	public boolean validacion(Color colorPanel, Color colorSecreto) {
