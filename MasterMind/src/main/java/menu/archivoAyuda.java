@@ -92,11 +92,15 @@ public class archivoAyuda extends JFrame {
 		mntmNewMenuItem_3.setIcon(new ImageIcon(archivoAyuda.class.getResource("/com/sun/java/swing/plaf/windows/icons/Inform.gif")));
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent ev) {
-	        	JOptionPane.showMessageDialog(mntmNewMenuItem_3, " Creado TEAM-6\n" );    
+	        	JOptionPane.showMessageDialog(mntmNewMenuItem_3, " Creado por:\n"
+	        			+ " # Constantin Vlad\n"
+	        			+ " # Gerard Viñuela\n"
+	        			+ " # Gerard Sanchez\n"
+	        			+ " # Aida Queralt");    
 	        }
 	    });
 		
-		mnNewMenu_1.add(mntmNewMenuItem_3);
+		mnNewMenu_1.add(mntmNewMenuItem_3); 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
