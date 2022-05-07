@@ -43,6 +43,9 @@ public class Controlador {
 		
 	}
 	
+	/**
+	 * Genera la combinacion secreta de colores
+	 */
 	public void combinacionSecreta() {
 		for (int i = 0; i < maxColor +1; i++) {
 			int numRandom = (int) (Math.random()*maxColor);
@@ -77,13 +80,19 @@ public class Controlador {
 		component.setLocation(actualLocation.x, actualLocation.y + uMovimiento);
 	}
 	
+	/**
+	 * Deja una copia grafica de los colores insertados anteriormente
+	 * 
+	 * @param insertPanel
+	 * @param padrePanel
+	 * @param nrIntento
+	 */
 	public void dejarCopiaPanel(JPanel insertPanel, JPanel padrePanel, int nrIntento) {
 		// Inicializar un nuevo panel
 		JPanel pastPanel = new JPanel();
 		
 		pastPanel.setLayout(null);
 		pastPanel.setBounds(0, uMovimiento*nrIntento, 260, 40);
-		pastPanel.setBackground(Color.BLACK);
 		
 		// Añadir hijos al pastPanel
 		// Tomar los hijos del insertPanel

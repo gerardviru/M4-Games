@@ -4,9 +4,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
 import javax.swing.JLabel;
 import javax.swing.JEditorPane;
 import java.awt.Color;
+
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -126,8 +129,8 @@ public class VistaJuego extends JFrame {
 		 * Panel para las casillas donde se cambian los colores
 		 */
 		JPanel insertarPanel = new JPanel();
-		insertarPanel.setBackground(Color.GREEN);
-		insertarPanel.setBounds(0, 50, 260, 40);
+		insertarPanel.setBounds(10, 50, 250, 40);
+		insertarPanel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
 		contentPane.add(insertarPanel);
 
 		/*
@@ -139,22 +142,22 @@ public class VistaJuego extends JFrame {
 		 */
 		insertarPanel.setLayout(null);
 		Casilla casilla1 = new Casilla(1);
-		casilla1.setBounds(55, 11, 21, 20);
+		casilla1.setBounds(45, 11, 21, 20);
 		insertarPanel.add(casilla1);
 		casilla1.addMouseListener(new CasillaMouseListener());
 
 		Casilla casilla2 = new Casilla(2);
-		casilla2.setBounds(110, 11, 21, 20);
+		casilla2.setBounds(100, 11, 21, 20);
 		insertarPanel.add(casilla2);
 		casilla2.addMouseListener(new CasillaMouseListener());
 
 		Casilla casilla3 = new Casilla(3);
-		casilla3.setBounds(165, 11, 21, 20);
+		casilla3.setBounds(155, 11, 21, 20);
 		insertarPanel.add(casilla3);
 		casilla3.addMouseListener(new CasillaMouseListener());
 
 		Casilla casilla4 = new Casilla(4);
-		casilla4.setBounds(220, 11, 21, 20);
+		casilla4.setBounds(210, 11, 21, 20);
 		insertarPanel.add(casilla4);
 		casilla4.addMouseListener(new CasillaMouseListener());
 
@@ -190,7 +193,7 @@ public class VistaJuego extends JFrame {
 		 * 
 		 */
 		JButton comprobarBtn = new JButton("Comprobar");
-		comprobarBtn.setBounds(266, 59, 109, 23);
+		comprobarBtn.setBounds(266, 50, 110, 40);
 		contentPane.add(comprobarBtn);
 		comprobarBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
