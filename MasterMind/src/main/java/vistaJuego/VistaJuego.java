@@ -156,9 +156,9 @@ public class VistaJuego extends JFrame {
 		verificado3.setBounds(97, 0, 23, 24);
 		validados.add(verificado3);
 		
-		JEditorPane verificado3_1 = new JEditorPane();
-		verificado3_1.setBounds(151, 0, 23, 24);
-		validados.add(verificado3_1);
+		JEditorPane verificado4 = new JEditorPane();
+		verificado4.setBounds(151, 0, 23, 24);
+		validados.add(verificado4);
 		
 		JButton comprobarBtn = new JButton("Comprobar");
 		comprobarBtn.setBounds(266, 76, 109, 23);
