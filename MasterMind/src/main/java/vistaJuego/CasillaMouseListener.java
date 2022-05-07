@@ -14,8 +14,6 @@ public class CasillaMouseListener implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		System.out.println(e.getButton());
-		System.out.println(e.getComponent());
 		controlador.cambiarColor(e.getButton(), e.getComponent());
 		
 	}

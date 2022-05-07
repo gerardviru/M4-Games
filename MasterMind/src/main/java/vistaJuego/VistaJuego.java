@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class VistaJuego extends JFrame {
 
@@ -49,7 +50,7 @@ public class VistaJuego extends JFrame {
 		 * Crear la combinacion secreta de colores en un array. Utilizar el index del
 		 * array para saber la posición
 		 */
-		controlador.combinacionSecreta();
+		controlador.generarColoresSecretos();		
 
 		setTitle("MasterMind");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -114,15 +115,29 @@ public class VistaJuego extends JFrame {
 		/*
 		 * Panel de las casillas de la combinacion secreta
 		 */
-		JPanel cambinacionPanel = new JPanel();
-		cambinacionPanel.setLayout(null);
-		cambinacionPanel.setOpaque(false);
-		cambinacionPanel.setBounds(618, 248, 245, 74);
-		contentPane.add(cambinacionPanel);
+		JPanel secretosPanel = new JPanel();
+		secretosPanel.setLayout(null);
+		secretosPanel.setBounds(618, 248, 245, 74);
+		
+		contentPane.add(secretosPanel);
 
 		JLabel labelCombinacionSecreta = new JLabel("Combinación Secreta");
 		labelCombinacionSecreta.setBounds(10, 11, 166, 14);
-		cambinacionPanel.add(labelCombinacionSecreta);
+		secretosPanel.add(labelCombinacionSecreta);
+		
+		/* 
+		 * Añadir los colores secretos al panel de colores secretos
+		 * 	
+		 */
+		ArrayList<Color> coloresSecretos = controlador.getColoresSecretos();
+
+		for (int i = 0; i < coloresSecretos.size(); i++) {
+			Color colorSecreto = coloresSecretos.get(i);
+			Casilla casilla = new Casilla(i +1);
+			casilla.setBackground(colorSecreto);
+			casilla.setBounds(55 * i, 50, 20, 20);
+			secretosPanel.add(casilla);
+		}
 
 		/*
 		 * EDITAR
@@ -166,26 +181,34 @@ public class VistaJuego extends JFrame {
 		 * 
 		 * 
 		 */
-		JPanel validados = new JPanel();
-		validados.setBounds(385, 59, 174, 24);
-		contentPane.add(validados);
-		validados.setLayout(null);
-
-		JEditorPane verificado1 = new JEditorPane();
-		verificado1.setBounds(1, 0, 23, 24);
-		validados.add(verificado1);
-
-		JEditorPane verificado2 = new JEditorPane();
-		verificado2.setBounds(49, 0, 23, 24);
-		validados.add(verificado2);
-
-		JEditorPane verificado3 = new JEditorPane();
-		verificado3.setBounds(97, 0, 23, 24);
-		validados.add(verificado3);
-
-		JEditorPane verificado4 = new JEditorPane();
-		verificado4.setBounds(151, 0, 23, 24);
-		validados.add(verificado4);
+//		JPanel validados = new JPanel();
+//		validados.setBounds(385, 59, 250, 40);
+//		contentPane.add(validados);
+//		validados.setLayout(null);
+//
+//		JEditorPane verificado1 = new JEditorPane();
+//		verificado1.setEditable(false);
+//		verificado1.setVisible(false);
+//		verificado1.setBounds(1, 0, 23, 24);
+//		validados.add(verificado1);
+//
+//		JEditorPane verificado2 = new JEditorPane();
+//		verificado2.setEditable(false);
+//		verificado2.setVisible(false);
+//		verificado2.setBounds(49, 0, 23, 24);
+//		validados.add(verificado2);
+//
+//		JEditorPane verificado3 = new JEditorPane();
+//		verificado3.setEditable(false);
+//		verificado3.setVisible(false);
+//		verificado3.setBounds(97, 0, 23, 24);
+//		validados.add(verificado3);
+//
+//		JEditorPane verificado4 = new JEditorPane();
+//		verificado4.setEditable(false);
+//		verificado4.setVisible(false);
+//		verificado4.setBounds(151, 0, 23, 24);
+//		validados.add(verificado4);
 
 		/*
 		 * Boton para comprobar
@@ -202,6 +225,10 @@ public class VistaJuego extends JFrame {
 
 				// Comprobar cuantos colores son correctos
 				// Comprobar si el color y la posición es correcta
+				controlador.validarCasillas(insertarPanel);
+				
+				// Mostrar el estado de los colores insertados
+				controlador.mostrarAciertos(contentPane, nrIntento);
 
 //				controlador.validacion(editorPane_5.getBackground(),controlador.getColoresSecretos().get(1));
 
