@@ -83,14 +83,12 @@ public class VistaJuego extends JFrame {
 		editorPane_3_1.setEditable(false);
 		editorPane_3_1.setBackground(Color.ORANGE);
 		editorPane_3_1.setBounds(172, 36, 21, 20);
-//		editorPane_3_1.setVisible(false);
 		coloresDisponiblesPanel.add(editorPane_3_1);
 		
 		JEditorPane editorPane_3_2 = new JEditorPane();
 		editorPane_3_2.setEditable(false);
 		editorPane_3_2.setBackground(Color.BLUE);
 		editorPane_3_2.setBounds(214, 36, 21, 20);
-//		editorPane_3_2.setVisible(false);
 		coloresDisponiblesPanel.add(editorPane_3_2);
 		
 		JEditorPane editorPane_1 = new JEditorPane();
@@ -262,18 +260,22 @@ public class VistaJuego extends JFrame {
 		validados.setLayout(null);
 		
 		JEditorPane verificado1 = new JEditorPane();
+		verificado1.setEditable(false);
 		verificado1.setBounds(1, 0, 23, 24);
 		validados.add(verificado1);
 		
 		JEditorPane verificado2 = new JEditorPane();
+		verificado2.setEditable(false);
 		verificado2.setBounds(49, 0, 23, 24);
 		validados.add(verificado2);
 		
 		JEditorPane verificado3 = new JEditorPane();
+		verificado3.setEditable(false);
 		verificado3.setBounds(97, 0, 23, 24);
 		validados.add(verificado3);
 		
 		JEditorPane verificado3_1 = new JEditorPane();
+		verificado3_1.setEditable(false);
 		verificado3_1.setBounds(151, 0, 23, 24);
 		validados.add(verificado3_1);
 		
@@ -355,12 +357,72 @@ public class VistaJuego extends JFrame {
 		JEditorPane editorPane_6_1 = new JEditorPane();
 		editorPane_6_1.setEditable(false);
 		editorPane_6_1.setBackground(Color.WHITE);
+		editorPane_6_1.addMouseListener(new MouseListener() {
+			Controlador controlador = new Controlador();
+			public void mouseClicked(MouseEvent e) {
+					controlador.cambiarColor(e.getButton(),editorPane_6_1);
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		editorPane_6_1.setBounds(152, 29, 21, 20);
 		insertarPanel_1.add(editorPane_6_1);
 		
 		JEditorPane editorPane_7_1 = new JEditorPane();
 		editorPane_7_1.setEditable(false);
 		editorPane_7_1.setBackground(Color.WHITE);
+		editorPane_7_1.addMouseListener(new MouseListener() {
+			Controlador controlador = new Controlador();
+			public void mouseClicked(MouseEvent e) {
+					controlador.cambiarColor(e.getButton(),editorPane_7_1);
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		editorPane_7_1.setBounds(216, 29, 21, 20);
 		insertarPanel_1.add(editorPane_7_1);
 		
@@ -374,30 +436,205 @@ public class VistaJuego extends JFrame {
 		JEditorPane editorPane_4_2 = new JEditorPane();
 		editorPane_4_2.setEditable(false);
 		editorPane_4_2.setBackground(Color.WHITE);
+		editorPane_4_2.addMouseListener(new MouseListener() {
+			Controlador controlador = new Controlador();
+			public void mouseClicked(MouseEvent e) {
+					controlador.cambiarColor(e.getButton(),editorPane_4_2);
+			}
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		editorPane_4_2.setBounds(20, 29, 21, 20);
 		insertarPanel_2.add(editorPane_4_2);
 		
 		JEditorPane editorPane_5_2 = new JEditorPane();
 		editorPane_5_2.setEditable(false);
 		editorPane_5_2.setBackground(Color.WHITE);
+		editorPane_5_2.addMouseListener(new MouseListener() {
+			Controlador controlador = new Controlador();
+			public void mouseClicked(MouseEvent e) {
+					controlador.cambiarColor(e.getButton(),editorPane_5_2);
+			}
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		editorPane_5_2.setBounds(83, 29, 21, 20);
 		insertarPanel_2.add(editorPane_5_2);
 		
 		JEditorPane editorPane_6_2 = new JEditorPane();
 		editorPane_6_2.setEditable(false);
 		editorPane_6_2.setBackground(Color.WHITE);
+		editorPane_6_2.addMouseListener(new MouseListener() {
+			Controlador controlador = new Controlador();
+			public void mouseClicked(MouseEvent e) {
+					controlador.cambiarColor(e.getButton(),editorPane_6_2);
+			}
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		editorPane_6_2.setBounds(152, 29, 21, 20);
 		insertarPanel_2.add(editorPane_6_2);
 		
 		JEditorPane editorPane_7_2 = new JEditorPane();
 		editorPane_7_2.setEditable(false);
 		editorPane_7_2.setBackground(Color.WHITE);
+		editorPane_7_2.addMouseListener(new MouseListener() {
+			Controlador controlador = new Controlador();
+			public void mouseClicked(MouseEvent e) {
+					controlador.cambiarColor(e.getButton(),editorPane_7_2);
+			}
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				
+				
+			}
+		});
 		editorPane_7_2.setBounds(216, 29, 21, 20);
 		insertarPanel_2.add(editorPane_7_2);
+	
 		
 		JButton comprobarBtn = new JButton("Comprobar");
 		comprobarBtn.setBounds(266, 76, 109, 23);
 		contentPane.add(comprobarBtn);
+		
+		JButton comprobarBtn_1 = new JButton("Comprobar");
+		comprobarBtn_1.setBounds(266, 164, 109, 23);
+		comprobarBtn_1.setVisible(false);
+		contentPane.add(comprobarBtn_1);
+		
+		JButton comprobarBtn_1_1 = new JButton("Comprobar");
+		comprobarBtn_1_1.setBounds(266, 246, 109, 23);
+		comprobarBtn_1_1.setVisible(false);
+		contentPane.add(comprobarBtn_1_1);
+		
+		JPanel validados_1 = new JPanel();
+		validados_1.setLayout(null);
+		validados_1.setBounds(385, 164, 174, 24);
+		contentPane.add(validados_1);
+		
+		JEditorPane verificado1_1 = new JEditorPane();
+		verificado1_1.setEditable(false);
+		verificado1_1.setBounds(1, 0, 23, 24);
+		validados_1.add(verificado1_1);
+		
+		JEditorPane verificado2_1 = new JEditorPane();
+		verificado2_1.setEditable(false);
+		verificado2_1.setBounds(49, 0, 23, 24);
+		validados_1.add(verificado2_1);
+		
+		JEditorPane verificado3_2 = new JEditorPane();
+		verificado3_2.setEditable(false);
+		verificado3_2.setBounds(97, 0, 23, 24);
+		validados_1.add(verificado3_2);
+		
+		JEditorPane verificado3_1_1 = new JEditorPane();
+		verificado3_1_1.setEditable(false);
+		verificado3_1_1.setBounds(151, 0, 23, 24);
+		validados_1.add(verificado3_1_1);
+		
+		JPanel validados_1_1 = new JPanel();
+		validados_1_1.setLayout(null);
+		validados_1_1.setBounds(385, 245, 174, 24);
+		contentPane.add(validados_1_1);
+		
+		JEditorPane verificado1_1_1 = new JEditorPane();
+		verificado1_1_1.setEditable(false);
+		verificado1_1_1.setBounds(1, 0, 23, 24);
+		validados_1_1.add(verificado1_1_1);
+		
+		JEditorPane verificado2_1_1 = new JEditorPane();
+		verificado2_1_1.setEditable(false);
+		verificado2_1_1.setBounds(49, 0, 23, 24);
+		validados_1_1.add(verificado2_1_1);
+		
+		JEditorPane verificado3_2_1 = new JEditorPane();
+		verificado3_2_1.setEditable(false);
+		verificado3_2_1.setBounds(97, 0, 23, 24);
+		validados_1_1.add(verificado3_2_1);
+		
+		JEditorPane verificado3_1_1_1 = new JEditorPane();
+		verificado3_1_1_1.setEditable(false);
+		verificado3_1_1_1.setBounds(151, 0, 23, 24);
+		validados_1_1.add(verificado3_1_1_1);
+		
+		
 		comprobarBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlador.validacion(editorPane_4.getBackground(),controlador.getColoresSecretos().get(0));
@@ -405,14 +642,25 @@ public class VistaJuego extends JFrame {
 				controlador.validacion(editorPane_6.getBackground(),controlador.getColoresSecretos().get(2));
 				controlador.validacion(editorPane_7.getBackground(),controlador.getColoresSecretos().get(3));
 				
-				// Mover el Boton comprobar
-				comprobarBtn.setBounds(266, 160, 109, 23);
-				contentPane.add(comprobarBtn);
-				contentPane.revalidate();
-					
+				// Ocultar el Boton comprobar
+				
+				comprobarBtn.setVisible(false);
+				comprobarBtn_1.setVisible(true);
 				insertarPanel_1.setVisible(true);
 			}
 		});
 		
+		comprobarBtn_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlador.validacion(editorPane_4_2.getBackground(),controlador.getColoresSecretos().get(0));
+				controlador.validacion(editorPane_5_2.getBackground(),controlador.getColoresSecretos().get(1));
+				controlador.validacion(editorPane_6_2.getBackground(),controlador.getColoresSecretos().get(2));
+				controlador.validacion(editorPane_7_2.getBackground(),controlador.getColoresSecretos().get(3));
+				
+				comprobarBtn_1.setVisible(false);
+				comprobarBtn_1_1.setVisible(true);
+				insertarPanel_2.setVisible(true);
+			}
+		});
 	}
 }
