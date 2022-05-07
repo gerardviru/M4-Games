@@ -53,7 +53,7 @@ public class VistaJuego extends JFrame {
 		setBounds(450, 200, 900, 700);
 		// contentPane: el contenedor padre de todo
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
@@ -122,14 +122,16 @@ public class VistaJuego extends JFrame {
 		cambinacionPanel.add(labelCombinacionSecreta);
 
 		/*
+		 * EDITAR
 		 * Panel para las casillas donde se cambian los colores
 		 */
 		JPanel insertarPanel = new JPanel();
 		insertarPanel.setBackground(Color.GREEN);
-		insertarPanel.setBounds(0, 49, 260, 40);
+		insertarPanel.setBounds(0, 50, 260, 40);
 		contentPane.add(insertarPanel);
 
 		/*
+		 * EDITAR CASILLAS
 		 * Generar las cuatro casillas donde se cambian los colores
 		 * 
 		 * 
@@ -206,6 +208,7 @@ public class VistaJuego extends JFrame {
 				// Mover el boton comprobar y el panel insertar colores
 				controlador.moverAbajo(comprobarBtn);
 				controlador.moverAbajo(insertarPanel);
+				contentPane.repaint();
 				contentPane.revalidate();
 
 			}

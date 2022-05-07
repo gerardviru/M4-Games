@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Point;
 import java.util.ArrayList;
+
+import javax.swing.JEditorPane;
 import javax.swing.JPanel;
 
 public class Controlador {
@@ -12,6 +14,7 @@ public class Controlador {
 	private ArrayList<Color> coloresSecretos = new ArrayList<Color>();
 	private int valor= -1;
 	private int maxColor = 3;
+	private int uMovimiento = 40;
 	
 	public Controlador() {
 
@@ -69,19 +72,36 @@ public class Controlador {
 	 */
 	public void moverAbajo(Component component) {
 		// Cantidad de desplazamiento
-		int units = 40;
 		
 		Point actualLocation = component.getLocation();
-		component.setLocation(actualLocation.x, actualLocation.y + units);
+		component.setLocation(actualLocation.x, actualLocation.y + uMovimiento);
 	}
 	
-	public void dejarCopiaPanel(JPanel panel, JPanel padrePanel, int nrIntento) {
+	public void dejarCopiaPanel(JPanel insertPanel, JPanel padrePanel, int nrIntento) {
+		// Inicializar un nuevo panel
 		JPanel pastPanel = new JPanel();
-//		pastPanel.setLayout();
-		pastPanel.setBounds(0, 49*nrIntento, 260, 40);
+		
+		pastPanel.setLayout(null);
+		pastPanel.setBounds(0, uMovimiento*nrIntento, 260, 40);
 		pastPanel.setBackground(Color.BLACK);
-		pastPanel.setName("panellll");
+		
+		// Añadir hijos al pastPanel
+		// Tomar los hijos del insertPanel
+		Component[] insertedComponents = insertPanel.getComponents();
+		// Crear y añadir nuevos hijos al pastPanel a partir de los hijos del insertPanel
+		for (int i = 0; i < insertedComponents.length; i++) {
+			Component insertComp = insertedComponents[i];
+			Component comp = new JEditorPane();
+			comp.setBounds(55*i+55, 11, 20, 20);
+			comp.setBackground(insertComp.getBackground());
+			comp.setEnabled(false);
+			pastPanel.add(comp);
+		}
+		
+		
 		pastPanel.setVisible(true);
+		
+		// Añadir el nuevo panel al panel padre
 		padrePanel.add(pastPanel);
 
 		
