@@ -2,8 +2,9 @@ package vistaJuego;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Point;
 import java.util.ArrayList;
-import javax.swing.JEditorPane;
+import javax.swing.JPanel;
 
 public class Controlador {
 
@@ -46,6 +47,13 @@ public class Controlador {
 		}
 	}
 	
+	/**
+	 * Validar los colores de las casillas
+	 * 
+	 * @param colorPanel
+	 * @param colorSecreto
+	 * @return
+	 */
 	public boolean validacion(Color colorPanel, Color colorSecreto) {
 		if(colorPanel.equals(colorSecreto)) {
 			System.out.println("true");
@@ -53,5 +61,29 @@ public class Controlador {
 		}
 		System.out.println("false");
 		return false;
+	}
+	
+	/**
+	 * Mover un componente hacia abajo
+	 * @param component
+	 */
+	public void moverAbajo(Component component) {
+		// Cantidad de desplazamiento
+		int units = 40;
+		
+		Point actualLocation = component.getLocation();
+		component.setLocation(actualLocation.x, actualLocation.y + units);
+	}
+	
+	public void dejarCopiaPanel(JPanel panel, JPanel padrePanel, int nrIntento) {
+		JPanel pastPanel = new JPanel();
+//		pastPanel.setLayout();
+		pastPanel.setBounds(0, 49*nrIntento, 260, 40);
+		pastPanel.setBackground(Color.BLACK);
+		pastPanel.setName("panellll");
+		pastPanel.setVisible(true);
+		padrePanel.add(pastPanel);
+
+		
 	}
 }
