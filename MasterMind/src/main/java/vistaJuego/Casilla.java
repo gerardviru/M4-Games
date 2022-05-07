@@ -1,13 +1,19 @@
 package vistaJuego;
 
-public class Casilla {
+import java.awt.Color;
+import javax.swing.JEditorPane;
+
+public class Casilla extends JEditorPane {
 	
 	private int posicion;
 	private String color;
 	
-	public Casilla(int posicion, String color) {
+	public Casilla(int posicion) {
 		this.posicion = posicion;
 		this.color = color;
+		this.setEditable(false);
+		this.setBackground(Color.WHITE);
+		this.addMouseListener(new CasillaMouseListener());
 	}
 
 	/**

@@ -1,6 +1,7 @@
 package vistaJuego;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JEditorPane;
 
@@ -19,7 +20,7 @@ public class Controlador {
 		return coloresSecretos;
 	}
 
-	public void cambiarColor(int mouseButton,JEditorPane panel) {
+	public void cambiarColor(int mouseButton, Component casilla) {
 		
         // Dinamico segun la dificultad
 
@@ -34,7 +35,7 @@ public class Controlador {
             else
                 valor--;
         }
-		panel.setBackground(colores[valor]);
+		casilla.setBackground(colores[valor]);
 		
 	}
 	
