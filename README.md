@@ -163,6 +163,9 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 </details>
 </br>
 
+![Captura de pantalla 2022-05-08 211635](https://user-images.githubusercontent.com/97692045/167312552-2c2728d2-48fe-4461-a535-bfe9156c83f0.jpg)
+
+
 <details>
   <summary>Casillas Blancas</summary>
 <br>
@@ -262,6 +265,6 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 ```
 </details>
 </br>
-![Captura de pantalla 2022-05-08 212818](https://user-images.githubusercontent.com/97692045/167312507-7bd84ac8-68f0-4779-a7da-1e5ee8c17756.jpg)
+
 
 
