@@ -59,10 +59,10 @@ public class Dificultad extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				if (radBtn2.isSelected()) {
-//					controlador.setMaximoIntentos(8);
+					controlador.setMaximoIntentos(8);
 					controlador.setMaxColor(4);
 				} else if(radBtn3.isSelected()) {
-//					controlador.setMaximoIntentos(6);
+					controlador.setMaximoIntentos(6);
 					controlador.setMaxColor(5);
 				}
 				VistaJuego.crearVistaJuego(controlador);

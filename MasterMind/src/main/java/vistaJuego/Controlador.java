@@ -331,7 +331,7 @@ public class Controlador {
 //	}
 
 	/**
-	 * Loopear las casillas input y validarlas
+	 * Loopear las casillas input y validarlas con las casillas secretas
 	 * 
 	 * @param casillasInput
 	 */
@@ -364,7 +364,6 @@ public class Controlador {
 				casillasSecretas.get(i).setComprobada(true);
 				casillaInput.setComprobada(true);
 				totalPerfectos++;
-//				break;
 			}
 		}
 
