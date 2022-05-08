@@ -1,3 +1,13 @@
+Estos ejercicios han sido realizado por los miembros del equipo 6. Dicho equipo esta formado por:
+
+[- Constan Vlad](https://github.com/ConstanHin)<br>
+[- Gerard Viñuela](https://github.com/gerardviru)<br>
+[- Aida Queralt](https://github.com/aidaq27)<br>
+[- Gerard Sanchez](https://github.com/gerardsanchezv)<br>
+
+
+
+
 # M4-Games MASTERMIND
 
 **Diagrama**
