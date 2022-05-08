@@ -265,8 +265,11 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 ```
 </details>
 </br>
-![Captura de pantalla 2022-05-08 212818](https://user-images.githubusercontent.com/97692045/167312596-45c1f93d-c257-44c8-9306-0144a61d6d2f.jpg)
+	
+![Captura de pantalla 2022-05-08 215159](https://user-images.githubusercontent.com/97692045/167313385-a2ad8dfe-b4b6-4fd8-9685-960c337ec5f9.jpg)
 
 
-## Vista Final del juego
+
+
+
 
