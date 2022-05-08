@@ -280,6 +280,6 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 
 
 
-
+Continuará...
 
 
