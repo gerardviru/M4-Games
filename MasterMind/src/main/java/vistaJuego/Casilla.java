@@ -6,14 +6,23 @@ import javax.swing.JEditorPane;
 public class Casilla extends JEditorPane {
 	
 	private int posicion;
-	private String color;
+	private Color color;
 	
-	public Casilla(int posicion) {
+	/**
+	 * Contructor
+	 * @param posicion - La posición de la casilla
+	 * @param color - El color del fondo de la casilla
+	 * @param editable - Determina si tendra MouseListener y se podrá cambiar el fondo
+	 */
+	public Casilla(int posicion, Color color, boolean editable) {
 		this.posicion = posicion;
 		this.color = color;
 		this.setEditable(false);
-		this.setBackground(Color.WHITE);
-		this.addMouseListener(new CasillaMouseListener());
+		this.setBackground(color);
+		
+		if (editable) {
+			this.addMouseListener(new CasillaMouseListener());			
+		}
 	}
 
 	/**
@@ -33,14 +42,14 @@ public class Casilla extends JEditorPane {
 	/**
 	 * @return the color
 	 */
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 
 	/**
 	 * @param color the color to set
 	 */
-	public void setColor(String color) {
+	public void setColor(Color color) {
 		this.color = color;
 	}
 	

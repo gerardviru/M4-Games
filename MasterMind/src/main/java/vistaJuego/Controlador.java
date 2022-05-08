@@ -15,6 +15,7 @@ public class Controlador {
 
 	private Color[] colores = { Color.magenta, Color.cyan, Color.yellow, Color.green, Color.gray };
 	private ArrayList<Color> coloresSecretos = new ArrayList<Color>();
+	private ArrayList<Casilla> casillasSecretas = new ArrayList<Casilla>();
 	private int valor = -1;
 	private int maxColor = 3;
 	private int uMovimiento = 40;
@@ -30,6 +31,13 @@ public class Controlador {
 
 	public ArrayList<Color> getColoresSecretos() {
 		return coloresSecretos;
+	}
+
+	/**
+	 * @return the casillasSecretas
+	 */
+	public ArrayList<Casilla> getCasillasSecretas() {
+		return casillasSecretas;
 	}
 
 	public void cambiarColor(int mouseButton, Component casilla) {
@@ -51,15 +59,26 @@ public class Controlador {
 
 	}
 
+//	/**
+//	 * Genera la combinacion secreta de colores
+//	 */
+//	public void generarColoresSecretos() {
+//		for (int i = 0; i < maxColor + 1; i++) {
+//			int numRandom = (int) (Math.random() * maxColor);
+//			coloresSecretos.add(colores[numRandom]);
+//		}
+//		System.out.println(coloresSecretos);
+//	}
 	/**
-	 * Genera la combinacion secreta de colores
+	 * Genera la combinacion secreta de colores v2
 	 */
-	public void generarColoresSecretos() {
+	public void generarCasillasSecretas() {
 		for (int i = 0; i < maxColor + 1; i++) {
 			int numRandom = (int) (Math.random() * maxColor);
-			coloresSecretos.add(colores[numRandom]);
+			Casilla casillaSecreta = new Casilla(i, colores[numRandom], false);
+			casillasSecretas.add(casillaSecreta);
 		}
-		System.out.println(coloresSecretos);
+		System.out.println(casillasSecretas);
 	}
 
 	/**
@@ -112,19 +131,7 @@ public class Controlador {
 	/**
 	 * Validar los colores de las casillas
 	 * 
-	 * @param colorPanel
-	 * @param colorSecreto
-	 * @return
 	 */
-//	public boolean validacion(Color colorPanel, Color colorSecreto) {
-//		if (colorPanel.equals(colorSecreto)) {
-//			System.out.println("true");
-//			return true;
-//		}
-//		System.out.println("false");
-//		return false;
-//	}
-
 	public void validarCasillas(JPanel insertPanel) {
 		// Resetear el estado de las posiciones
 		totalPerfectos = 0;
@@ -179,7 +186,7 @@ public class Controlador {
 				estadoColor = 1;
 			}
 		}
-		
+
 		// Sumar el estado de la comprobación
 		switch (estadoColor) {
 		case 1:
@@ -219,11 +226,9 @@ public class Controlador {
 			comp.setEnabled(false);
 			panelValidados.add(comp);
 		}
-		
+
 		panelPadre.add(panelValidados);
-		panelPadre.repaint();
-		
+
 	}
-	
 
 }

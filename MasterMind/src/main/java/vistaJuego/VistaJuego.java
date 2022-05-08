@@ -39,7 +39,7 @@ public class VistaJuego extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Constructor. Create the frame.
 	 */
 	public VistaJuego() {
 
@@ -50,14 +50,18 @@ public class VistaJuego extends JFrame {
 		 * Crear la combinacion secreta de colores en un array. Utilizar el index del
 		 * array para saber la posición
 		 */
-		controlador.generarColoresSecretos();		
+//		controlador.generarColoresSecretos();		
+		controlador.generarCasillasSecretas();	
 
+		/*
+		 * Definiendo las propiedades de la ventana principal
+		 */
 		setTitle("MasterMind");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(450, 200, 900, 700);
-		// contentPane: el contenedor padre de todo
+		
+		// contentPane: el contenedor que engloba toda la ventana VistaJuego
 		contentPane = new JPanel();
-//		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
@@ -72,45 +76,9 @@ public class VistaJuego extends JFrame {
 		coloresDisponiblesPanel.add(labelColoresDisponibles);
 
 		/*
-		 * Los siguientes JEditorPane son para las casillas de los colores disponibles
+		 * Genera las casillas mostradas en el panel de los colores disponibles
 		 */
-		JEditorPane casillaColorFijo1 = new JEditorPane();
-		casillaColorFijo1.setEditable(false);
-		casillaColorFijo1.setBackground(Color.MAGENTA);
-		casillaColorFijo1.setBounds(10, 36, 21, 20);
-		coloresDisponiblesPanel.add(casillaColorFijo1);
-
-		JEditorPane casillaColorFijo2 = new JEditorPane();
-		casillaColorFijo2.setBounds(48, 36, 21, 20);
-		coloresDisponiblesPanel.add(casillaColorFijo2);
-		casillaColorFijo2.setEditable(false);
-		casillaColorFijo2.setBackground(Color.YELLOW);
-
-		JEditorPane casillaColorFijo3 = new JEditorPane();
-		casillaColorFijo3.setEditable(false);
-		casillaColorFijo3.setBackground(Color.CYAN);
-		casillaColorFijo3.setBounds(91, 36, 21, 20);
-		coloresDisponiblesPanel.add(casillaColorFijo3);
-
-		JEditorPane casillaColorFijo4 = new JEditorPane();
-		casillaColorFijo4.setEditable(false);
-		casillaColorFijo4.setBackground(Color.GREEN);
-		casillaColorFijo4.setBounds(133, 36, 21, 20);
-		coloresDisponiblesPanel.add(casillaColorFijo4);
-
-		JEditorPane casillaColorFijo5 = new JEditorPane();
-		casillaColorFijo5.setEditable(false);
-		casillaColorFijo5.setBackground(Color.ORANGE);
-		casillaColorFijo5.setBounds(172, 36, 21, 20);
-//		editorPane_3_1.setVisible(false);
-		coloresDisponiblesPanel.add(casillaColorFijo5);
-
-		JEditorPane casillaColorFijo6 = new JEditorPane();
-		casillaColorFijo6.setEditable(false);
-		casillaColorFijo6.setBackground(Color.BLUE);
-		casillaColorFijo6.setBounds(214, 36, 21, 20);
-//		editorPane_3_2.setVisible(false);
-		coloresDisponiblesPanel.add(casillaColorFijo6);
+		generarCasillasColoresDisponibles(coloresDisponiblesPanel);
 
 		/*
 		 * Panel de las casillas de la combinacion secreta
@@ -126,15 +94,13 @@ public class VistaJuego extends JFrame {
 		secretosPanel.add(labelCombinacionSecreta);
 		
 		/* 
-		 * Añadir los colores secretos al panel de colores secretos
+		 * Añadir las casillas secretas al panel de colores secretos
 		 * 	
 		 */
-		ArrayList<Color> coloresSecretos = controlador.getColoresSecretos();
+		ArrayList<Casilla> casillasSecretas = controlador.getCasillasSecretas();
 
-		for (int i = 0; i < coloresSecretos.size(); i++) {
-			Color colorSecreto = coloresSecretos.get(i);
-			Casilla casilla = new Casilla(i +1);
-			casilla.setBackground(colorSecreto);
+		for (int i = 0; i < casillasSecretas.size(); i++) {
+			Casilla casilla = casillasSecretas.get(i);
 			casilla.setBounds(55 * i, 50, 20, 20);
 			secretosPanel.add(casilla);
 		}
@@ -156,59 +122,25 @@ public class VistaJuego extends JFrame {
 		 * 
 		 */
 		insertarPanel.setLayout(null);
-		Casilla casilla1 = new Casilla(1);
+		Casilla casilla1 = new Casilla(0, Color.WHITE, true);
 		casilla1.setBounds(45, 11, 21, 20);
 		insertarPanel.add(casilla1);
 		casilla1.addMouseListener(new CasillaMouseListener());
 
-		Casilla casilla2 = new Casilla(2);
+		Casilla casilla2 = new Casilla(1, Color.WHITE, true);
 		casilla2.setBounds(100, 11, 21, 20);
 		insertarPanel.add(casilla2);
 		casilla2.addMouseListener(new CasillaMouseListener());
 
-		Casilla casilla3 = new Casilla(3);
+		Casilla casilla3 = new Casilla(2, Color.WHITE, true);
 		casilla3.setBounds(155, 11, 21, 20);
 		insertarPanel.add(casilla3);
 		casilla3.addMouseListener(new CasillaMouseListener());
 
-		Casilla casilla4 = new Casilla(4);
+		Casilla casilla4 = new Casilla(3, Color.WHITE, true);
 		casilla4.setBounds(210, 11, 21, 20);
 		insertarPanel.add(casilla4);
 		casilla4.addMouseListener(new CasillaMouseListener());
-
-		/*
-		 * Panel y casillas verificadas
-		 * 
-		 * 
-		 */
-//		JPanel validados = new JPanel();
-//		validados.setBounds(385, 59, 250, 40);
-//		contentPane.add(validados);
-//		validados.setLayout(null);
-//
-//		JEditorPane verificado1 = new JEditorPane();
-//		verificado1.setEditable(false);
-//		verificado1.setVisible(false);
-//		verificado1.setBounds(1, 0, 23, 24);
-//		validados.add(verificado1);
-//
-//		JEditorPane verificado2 = new JEditorPane();
-//		verificado2.setEditable(false);
-//		verificado2.setVisible(false);
-//		verificado2.setBounds(49, 0, 23, 24);
-//		validados.add(verificado2);
-//
-//		JEditorPane verificado3 = new JEditorPane();
-//		verificado3.setEditable(false);
-//		verificado3.setVisible(false);
-//		verificado3.setBounds(97, 0, 23, 24);
-//		validados.add(verificado3);
-//
-//		JEditorPane verificado4 = new JEditorPane();
-//		verificado4.setEditable(false);
-//		verificado4.setVisible(false);
-//		verificado4.setBounds(151, 0, 23, 24);
-//		validados.add(verificado4);
 
 		/*
 		 * Boton para comprobar
@@ -230,8 +162,6 @@ public class VistaJuego extends JFrame {
 				// Mostrar el estado de los colores insertados
 				controlador.mostrarAciertos(contentPane, nrIntento);
 
-//				controlador.validacion(editorPane_5.getBackground(),controlador.getColoresSecretos().get(1));
-
 				// Dejar una copia de los colores escogidos en el mismo lugar
 				controlador.dejarCopiaPanel(insertarPanel, contentPane, nrIntento);
 
@@ -244,5 +174,34 @@ public class VistaJuego extends JFrame {
 			}
 		});
 
+	}
+
+	public void generarCasillasColoresDisponibles(JPanel coloresDisponiblesPanel) {
+		/*
+		 * Los siguientes JEditorPane son para las casillas de los colores disponibles
+		 */
+		Casilla casillaColorFijo0 = new Casilla(0, Color.MAGENTA, false);
+		casillaColorFijo0.setBounds(10, 36, 21, 20);
+		coloresDisponiblesPanel.add(casillaColorFijo0);
+
+		Casilla casillaColorFijo1 = new Casilla(1, Color.YELLOW, false);
+		casillaColorFijo1.setBounds(48, 36, 21, 20);
+		coloresDisponiblesPanel.add(casillaColorFijo1);
+
+		Casilla casillaColorFijo2 = new Casilla(2, Color.CYAN, false);
+		casillaColorFijo2.setBounds(91, 36, 21, 20);
+		coloresDisponiblesPanel.add(casillaColorFijo2);
+
+		Casilla casillaColorFijo3 = new Casilla(3, Color.GREEN, false);
+		casillaColorFijo3.setBounds(133, 36, 21, 20);
+		coloresDisponiblesPanel.add(casillaColorFijo3);
+		
+		Casilla casillaColorFijo4 = new Casilla(4, Color.ORANGE, false);
+		casillaColorFijo4.setBounds(172, 36, 21, 20);
+		coloresDisponiblesPanel.add(casillaColorFijo4);
+
+		Casilla casillaColorFijo5 = new Casilla(4, Color.BLUE, false);
+		casillaColorFijo5.setBounds(214, 36, 21, 20);
+		coloresDisponiblesPanel.add(casillaColorFijo5);
 	}
 }
