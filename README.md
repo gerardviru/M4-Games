@@ -166,7 +166,7 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 <details>
   <summary>Casillas Blancas</summary>
 <br>
-  <p>Se crea aleatoriamente una combinación de colores, que el usuario tiene que intentar resolver</p>
+  <p>Se muestra una casilla blanca, cuando ha coincidido que un color comprobado coincide con un color de la combinación secreta</p>
   
  ```java
  	public void mostrarAciertos(JPanel panelPadre, int nrIntento) {
@@ -199,5 +199,65 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 </details>
 </br>
 
+<details>
+  <summary>Casilla Negra</summary>
+<br>
+  <p>Se muestra cuando uno de los colores, esta en la posición correcta</p>
+  
+ ```java
+	public void validarCasillas(ArrayList<Casilla> casillasInput) {
+
+		totalPerfectos = 0;
+		totalEncontrados = 0;
+		// Reset casilla input comprobada con cada nuevo intento
+		for (int i = 0; i < casillasInput.size(); i++) {
+			Casilla casilla = casillasInput.get(i);
+			casilla.setComprobada(false);
+		}
+		// Reset casilla Secreta comprobada con cada nuevo intento
+		for (int i = 0; i < casillasSecretas.size(); i++) {
+			Casilla casilla = casillasSecretas.get(i);
+			casilla.setComprobada(false);
+		}
+		/*
+		 * 
+		 * 
+		 */
+		// Comprueba color y posición correcta de las parejas casillas de input y
+		// secreto de la misma posición.
+		for (int i = 0; i < casillasInput.size(); i++) {
+			Casilla casillaInput = casillasInput.get(i);
+			Color colorCasillaInput = casillasInput.get(i).getBackground();
+			Color colorCasillaSecreta = casillasSecretas.get(i).getBackground();
+			// Posicion y color correctos
+			if (colorCasillaInput.equals(colorCasillaSecreta)) {
+				casillasSecretas.get(i).setComprobada(true);
+				casillaInput.setComprobada(true);
+				totalPerfectos++;
+			}
+		}
+
+		// Comprueba si el color es correcto en otra posición del grupo de casillas
+		// secretas
+		for (int i = 0; i < casillasInput.size(); i++) {
+			Casilla casillaInput = casillasInput.get(i);
+			Color colorCasillaInput = casillasInput.get(i).getBackground();
+			// For grupo casillas secretas
+			for (int j = 0; j < casillasSecretas.size(); j++) {
+				Casilla casillaSecreta = casillasSecretas.get(j);
+				Color colorCasillaSecreta = casillaSecreta.getBackground();
+				if (!casillaSecreta.getComprobada() 
+						&& !casillaInput.getComprobada()
+						&& colorCasillaInput.equals(colorCasillaSecreta)) {
+					casillaSecreta.setComprobada(true);
+					totalEncontrados++;
+					// Una vez encontrado salir del loop;
+					break;
+				}
+			}
+		}
+```
+</details>
+</br>
 
 
