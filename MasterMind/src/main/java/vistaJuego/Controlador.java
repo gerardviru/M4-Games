@@ -3,11 +3,14 @@ package vistaJuego;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Point;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JEditorPane;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 
@@ -22,15 +25,39 @@ public class Controlador {
 	private boolean[] posicionesEncontradas = { false, false, false, false };
 	private int totalEncontrados = 0;
 	private int totalPerfectos = 0;
-	private int[] estadoColores = { 0, 0, 0, 0 };
-	// 0 = no encontrado/no posicionado; 1 = si encontrado/no posicionado;
-	// 2 = si encontrado/si posicionado
+	private ArrayList<Casilla> casillasInput;
+	private int maximoIntentos = 5;
+	private JLabel labelFinalizada;
+	private JButton comprobarBtn;
 
 	public Controlador() {
+	}
+	
+	/**
+	 * Set casillas input
+	 * @param casillasInput
+	 */
+	public void setCasillasInput(ArrayList<Casilla> casillasInput) {
+		this.casillasInput = casillasInput;	
 	}
 
 	public ArrayList<Color> getColoresSecretos() {
 		return coloresSecretos;
+	}
+	
+
+	/**
+	 * @return the maximointentos
+	 */
+	public int getMaximoIntentos() {
+		return maximoIntentos;
+	}
+
+	/**
+	 * @param maximointentos the maximointentos to set
+	 */
+	public void setMaximoIntentos(int maximointentos) {
+		this.maximoIntentos = maximointentos;
 	}
 
 	/**
@@ -38,6 +65,35 @@ public class Controlador {
 	 */
 	public ArrayList<Casilla> getCasillasSecretas() {
 		return casillasSecretas;
+	}
+	
+
+	/**
+	 * @return the labelFinalizada
+	 */
+	public JLabel getLabelFinalizada() {
+		return labelFinalizada;
+	}
+
+	/**
+	 * @param labelFinalizada the labelFinalizada to set
+	 */
+	public void setLabelFinalizada(JLabel labelFinalizada) {
+		this.labelFinalizada = labelFinalizada;
+	}
+
+	/**
+	 * @return the comprobarBtn
+	 */
+	public JButton getComprobarBtn() {
+		return comprobarBtn;
+	}
+
+	/**
+	 * @param comprobarBtn the comprobarBtn to set
+	 */
+	public void setComprobarBtn(JButton comprobarBtn) {
+		this.comprobarBtn = comprobarBtn;
 	}
 
 	public void cambiarColor(int mouseButton, Component casilla) {
@@ -129,78 +185,52 @@ public class Controlador {
 	}
 
 	/**
-	 * Validar los colores de las casillas
-	 * 
-	 */
-	public void validarCasillas(JPanel insertPanel) {
-		// Resetear el estado de las posiciones
-		totalPerfectos = 0;
-		totalEncontrados = 0;
-		for (int i = 0; i < posicionesEncontradas.length; i++) {
-			posicionesEncontradas[i] = false;
-		}
-		System.out.println("-------------------------");
-		// Obtener los componentes del insertPanel
-		Component[] insertedComponents = insertPanel.getComponents();
-
-		// Iterar los colores Casillas introducidos
-		for (int i = 0; i < insertedComponents.length; i++) {
-			Component insertComp = insertedComponents[i];
-			Color colorCasilla = insertComp.getBackground();
-			int posicionCasilla = i;
-
-			iterarColoresSecretos(colorCasilla, posicionCasilla);
-
-		}
-	}
-
-	/**
 	 * Itera los colores secretos para ver cuantos colores se han acertado y si
 	 * estan en las posiciones correctas.
 	 * 
 	 * @param colorCasilla
 	 * @param posicionCasilla
 	 */
-	public void iterarColoresSecretos(Color colorCasilla, int posicionCasilla) {
-		int estadoColor = 0;
-		System.out.println("_______");
-
-		// Iterar los colores secretos
-		for (int j = 0; j < coloresSecretos.size(); j++) {
-			Color colorSecreto = coloresSecretos.get(j);
-
-			// Saltar loop si el color se ha encontrado
-			if (posicionesEncontradas[j]) {
-				continue;
-			}
-
-			// Comprobar si el color y la posición coinciden
-			if (colorCasilla.equals(colorSecreto) && posicionCasilla == j) {
-				System.out.println("Color encontrado y posición correcta");
-				estadoColor = 2;
-				break;
-			} else if (colorCasilla.equals(colorSecreto)) {
-				// Setear la posicion del color como encontrada
-				posicionesEncontradas[j] = true;
-				System.out.println("Color encontrado");
-				estadoColor = 1;
-			}
-		}
-
-		// Sumar el estado de la comprobación
-		switch (estadoColor) {
-		case 1:
-			totalEncontrados++;
-			break;
-		case 2:
-			totalPerfectos++;
-			break;
-
-		default:
-			break;
-		}
-
-	}
+//	public void iterarColoresSecretos(Color colorCasilla, int posicionCasilla) {
+//		int estadoColor = 0;
+//		System.out.println("_______");
+//
+//		// Iterar los colores secretos
+//		for (int j = 0; j < coloresSecretos.size(); j++) {
+//			Color colorSecreto = coloresSecretos.get(j);
+//
+//			// Saltar loop si el color se ha encontrado
+//			if (posicionesEncontradas[j]) {
+//				continue;
+//			}
+//
+//			// Comprobar si el color y la posición coinciden
+//			if (colorCasilla.equals(colorSecreto) && posicionCasilla == j) {
+//				System.out.println("Color encontrado y posición correcta");
+//				estadoColor = 2;
+//				break;
+//			} else if (colorCasilla.equals(colorSecreto)) {
+//				// Setear la posicion del color como encontrada
+//				posicionesEncontradas[j] = true;
+//				System.out.println("Color encontrado");
+//				estadoColor = 1;
+//			}
+//		}
+//
+//		// Sumar el estado de la comprobación
+//		switch (estadoColor) {
+//		case 1:
+//			totalEncontrados++;
+//			break;
+//		case 2:
+//			totalPerfectos++;
+//			break;
+//
+//		default:
+//			break;
+//		}
+//
+//	}
 
 	/**
 	 * Mostrar los aciertos en la vista
@@ -230,5 +260,99 @@ public class Controlador {
 		panelPadre.add(panelValidados);
 
 	}
+
+	/**
+	 * Validar los colores de las casillas
+	 * 
+	 */
+//	public void validarCasillas(JPanel insertPanel) {
+//		// Resetear el estado de las posiciones
+//		totalPerfectos = 0;
+//		totalEncontrados = 0;
+//		for (int i = 0; i < posicionesEncontradas.length; i++) {
+//			posicionesEncontradas[i] = false;
+//		}
+//		System.out.println("-------------------------");
+//		// Obtener los componentes del insertPanel
+//		Component[] insertedComponents = insertPanel.getComponents();
+//
+//		// Iterar los colores Casillas introducidos
+//		for (int i = 0; i < insertedComponents.length; i++) {
+//			Component insertComp = insertedComponents[i];
+//			Color colorCasilla = insertComp.getBackground();
+//			int posicionCasilla = i;
+//
+//			iterarColoresSecretos(colorCasilla, posicionCasilla);
+//
+//		}
+//	}
+	
+//	public void comprobarPosicionCasilla() {
+//		
+//	}
+
+	/**
+	 * Loopear las casillas input y validarlas
+	 * @param casillasInput
+	 */
+	public void validarCasillas(ArrayList<Casilla> casillasInput) {
+		
+		totalPerfectos = 0;
+		totalEncontrados = 0;
+		// Reset casilla comprobada
+		for (int i = 0; i < casillasSecretas.size(); i++) {
+			Casilla casilla = casillasSecretas.get(i);
+			casilla.setComprobada(false);
+		}
+		
+		// Loopear casillas Input
+		for (int i = 0; i < casillasInput.size(); i++) {
+			Color colorCasillaInput = casillasInput.get(i).getBackground();
+			Color colorCasillaSecreta = casillasSecretas.get(i).getBackground();
+			// Posicion y color correctos
+			if (colorCasillaInput.equals(colorCasillaSecreta)) {
+				casillasSecretas.get(i).setComprobada(true);
+				totalPerfectos++;
+				
+			}else {
+				comprobarCasillasSecretas(colorCasillaInput);
+				
+			}
+			
+		}
+		
+		// Comprobar si has ganado
+		if (totalPerfectos >= 4) {
+			finalizarPartida();
+		}
+		
+	}
+
+	/**
+	 * Loopear las casillas secretas
+	 */
+	private void comprobarCasillasSecretas(Color colorCasillaInput) {
+		for (int i = 0; i < casillasSecretas.size(); i++) {
+			Color colorCasillaSecreta = casillasSecretas.get(i).getBackground();
+			boolean yacomprobada = casillasSecretas.get(i).getComprobada();
+			if (!yacomprobada && colorCasillaInput.equals(colorCasillaSecreta)) {
+				casillasSecretas.get(i).setComprobada(true);
+				totalEncontrados++;
+				// Salir si se ha encontrado el color
+				break;
+			}
+		}
+		
+	}
+	
+	
+	public void finalizarPartida() {
+		labelFinalizada.setVisible(true);
+		comprobarBtn.setEnabled(false);
+		if (totalPerfectos >= 4) {
+			labelFinalizada.setText("Has ganado!");
+		}
+	}
+
 
 }

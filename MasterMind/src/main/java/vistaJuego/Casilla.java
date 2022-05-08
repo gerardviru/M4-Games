@@ -7,6 +7,7 @@ public class Casilla extends JEditorPane {
 	
 	private int posicion;
 	private Color color;
+	private boolean comprobada = false;
 	
 	/**
 	 * Contructor
@@ -17,8 +18,8 @@ public class Casilla extends JEditorPane {
 	public Casilla(int posicion, Color color, boolean editable) {
 		this.posicion = posicion;
 		this.color = color;
-		this.setEditable(false);
 		this.setBackground(color);
+		this.setEditable(false);
 		
 		if (editable) {
 			this.addMouseListener(new CasillaMouseListener());			
@@ -51,6 +52,21 @@ public class Casilla extends JEditorPane {
 	 */
 	public void setColor(Color color) {
 		this.color = color;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean getComprobada() {
+		return comprobada;
+	}
+	/**
+	 * 
+	 * @param x
+	 */
+	public void setComprobada(boolean x) {
+		this.comprobada = x; 
 	}
 	
 	

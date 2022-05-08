@@ -3,19 +3,18 @@ package vistaJuego;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.JLabel;
-import javax.swing.JEditorPane;
 import java.awt.Color;
+import java.awt.Component;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class VistaJuego extends JFrame {
 
@@ -50,7 +49,6 @@ public class VistaJuego extends JFrame {
 		 * Crear la combinacion secreta de colores en un array. Utilizar el index del
 		 * array para saber la posición
 		 */
-//		controlador.generarColoresSecretos();		
 		controlador.generarCasillasSecretas();	
 
 		/*
@@ -121,26 +119,16 @@ public class VistaJuego extends JFrame {
 		 * 
 		 * 
 		 */
-		insertarPanel.setLayout(null);
-		Casilla casilla1 = new Casilla(0, Color.WHITE, true);
-		casilla1.setBounds(45, 11, 21, 20);
-		insertarPanel.add(casilla1);
-		casilla1.addMouseListener(new CasillaMouseListener());
+		ArrayList<Casilla> casillasInput = new ArrayList<Casilla>();
+		
+		for (int i = 0; i < 4; i++) {
+			insertarPanel.setLayout(null);
+			Casilla casilla = new Casilla(i, Color.WHITE, true);
+			casilla.setBounds(55 *i+1 + 45, 11, 21, 20);
+			insertarPanel.add(casilla);
+			casillasInput.add(casilla);
+		}	
 
-		Casilla casilla2 = new Casilla(1, Color.WHITE, true);
-		casilla2.setBounds(100, 11, 21, 20);
-		insertarPanel.add(casilla2);
-		casilla2.addMouseListener(new CasillaMouseListener());
-
-		Casilla casilla3 = new Casilla(2, Color.WHITE, true);
-		casilla3.setBounds(155, 11, 21, 20);
-		insertarPanel.add(casilla3);
-		casilla3.addMouseListener(new CasillaMouseListener());
-
-		Casilla casilla4 = new Casilla(3, Color.WHITE, true);
-		casilla4.setBounds(210, 11, 21, 20);
-		insertarPanel.add(casilla4);
-		casilla4.addMouseListener(new CasillaMouseListener());
 
 		/*
 		 * Boton para comprobar
@@ -150,14 +138,43 @@ public class VistaJuego extends JFrame {
 		JButton comprobarBtn = new JButton("Comprobar");
 		comprobarBtn.setBounds(266, 50, 110, 40);
 		contentPane.add(comprobarBtn);
+		
+		/*
+		 * Etiqueta que muestra final de la partida
+		 * 
+		 * 
+		 * 
+		 */
+		JLabel labelFinalizada = new JLabel("GAME OVER!");
+		labelFinalizada.setHorizontalAlignment(SwingConstants.CENTER);
+		labelFinalizada.setFont(new Font("Verdana", Font.PLAIN, 25));
+		labelFinalizada.setBounds(618, 395, 245, 152);
+		labelFinalizada.setVisible(false);
+		contentPane.add(labelFinalizada);
+		
+		controlador.setLabelFinalizada(labelFinalizada);
+		controlador.setComprobarBtn(comprobarBtn);
+		
+		JLabel labelIntentos = new JLabel(controlador.getMaximoIntentos() + " Intentos");
+		labelIntentos.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		labelIntentos.setBounds(618, 11, 245, 59);
+		contentPane.add(labelIntentos);
+		
+		/*
+		 * Acción del botón 
+		 */
 		comprobarBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				nrIntento++;
+				
+				// Pasar casillas input
+				
+				controlador.setCasillasInput(casillasInput);
 
 				// Comprobar cuantos colores son correctos
 				// Comprobar si el color y la posición es correcta
-				controlador.validarCasillas(insertarPanel);
+				controlador.validarCasillas(casillasInput);
 				
 				// Mostrar el estado de los colores insertados
 				controlador.mostrarAciertos(contentPane, nrIntento);
@@ -170,6 +187,13 @@ public class VistaJuego extends JFrame {
 				controlador.moverAbajo(insertarPanel);
 				contentPane.repaint();
 				contentPane.revalidate();
+				
+				// Actualizar el número de intentos
+				labelIntentos.setText((controlador.getMaximoIntentos()- nrIntento) + " Intentos");
+				
+				if (nrIntento >= controlador.getMaximoIntentos()) {
+					controlador.finalizarPartida();
+				}
 
 			}
 		});
