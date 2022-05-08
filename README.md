@@ -199,6 +199,9 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 </details>
 </br>
 
+![Captura de pantalla 2022-05-08 212807](https://user-images.githubusercontent.com/97692045/167312517-c6fa71bb-b923-4365-b26d-17f653739c67.jpg)
+
+
 <details>
   <summary>Casilla Negra</summary>
 <br>
@@ -259,5 +262,6 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 ```
 </details>
 </br>
+![Captura de pantalla 2022-05-08 212818](https://user-images.githubusercontent.com/97692045/167312507-7bd84ac8-68f0-4779-a7da-1e5ee8c17756.jpg)
 
 
