@@ -73,6 +73,9 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 </details>
 </br>
 
+![Captura de pantalla 2022-05-08 210312](https://user-images.githubusercontent.com/97692045/167311593-60af2877-bab3-4abc-9ce0-6e8640d4f8ae.jpg)
+
+
 <details>
   <summary>Combinación secreta</summary>
 <br>
@@ -90,9 +93,63 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 </details>
 </br>
 
-*Numero de Intentos*
-Se restan cada vez que realiza la comprobación de colores
+![Captura de pantalla 2022-05-08 210149](https://user-images.githubusercontent.com/97692045/167311540-c15934fb-ea7f-4982-b6f7-3ebe3b80614f.jpg)
 
-*Boton Comprobar*
-Realiza la comprobración tanto del color como de la posición
+<details>
+  <summary>Numero de intentos</summary>
+<br>
+  <p>Se resta 1 intento cada vez, que comprobamos las casillas.</p>
+</details>
+</br>
 
+![Captura de pantalla 2022-05-08 210817](https://user-images.githubusercontent.com/97692045/167311846-f8d90f78-de7c-49f4-8b22-5027a02f014f.jpg)
+
+<details>
+  <summary>Botón Comprobar</summary>
+<br>
+  <p>Realiza la comprobación tanto del color, como la posicion </p>
+  
+ ```java
+		/*
+		 * Acción del botón "Comprobar"
+		 */
+		comprobarBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				nrIntento++;
+				
+				// Pasar casillas input
+				
+				controlador.setCasillasInput(casillasInput);
+
+				// Comprobar cuantos colores son correctos
+				// Comprobar si el color y la posición es correcta
+				controlador.validarCasillas(casillasInput);
+				
+				// Mostrar el estado de los colores insertados
+				controlador.mostrarAciertos(contentPane, nrIntento);
+
+				// Dejar una copia de los colores escogidos en el mismo lugar
+				controlador.dejarCopiaPanel(insertarPanel, contentPane, nrIntento);
+
+				// Mover el boton comprobar y el panel insertar colores
+				controlador.moverAbajo(comprobarBtn);
+				controlador.moverAbajo(insertarPanel);
+				contentPane.repaint();
+				contentPane.revalidate();
+				
+				// Actualizar el número de intentos
+				labelIntentos.setText((controlador.getMaximoIntentos()- nrIntento) + " Intentos");
+				
+				if (nrIntento >= controlador.getMaximoIntentos()) {
+					controlador.finalizarPartida();
+				}
+
+			}
+		});
+
+	}
+```
+</details>
+</br>
+![Captura de pantalla 2022-05-08 211419](https://user-images.githubusercontent.com/97692045/167312032-f8d59edc-8873-4709-80b3-0a2899937a4b.jpg)
