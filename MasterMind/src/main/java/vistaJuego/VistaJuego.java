@@ -161,24 +161,8 @@ public class VistaJuego extends JFrame {
 		labelIntentos.setBounds(618, 11, 245, 59);
 		contentPane.add(labelIntentos);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				for (int i = 0; i < controlador.getCasillasSecretas().size(); i++) {
-					System.out.println(
-							controlador.getCasillasSecretas().get(i).getBackground()
-							);
-				}
-				System.out.println("--------------");
-				System.out.println(controlador.getTotalEncontrados());
-				System.out.println(controlador.getTotalPerfectos());
-			}
-		});
-		btnNewButton.setBounds(646, 593, 89, 23);
-		contentPane.add(btnNewButton);
-		
 		/*
-		 * Acción del botón 
+		 * Acción del botón "Comprobar"
 		 */
 		comprobarBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

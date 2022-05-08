@@ -33,25 +33,25 @@ public class Controlador {
 
 	public Controlador() {
 	}
-	
+
 //	public Controlador(int maximoIntentos, int maxColor) {
 //		this.maximoIntentos = maximoIntentos;
 //		// Variar segun el nivel
 //		this.maxColor = maxColor;
 //	}
-	
+
 	/**
 	 * Set casillas input
+	 * 
 	 * @param casillasInput
 	 */
 	public void setCasillasInput(ArrayList<Casilla> casillasInput) {
-		this.casillasInput = casillasInput;	
+		this.casillasInput = casillasInput;
 	}
 
 	public ArrayList<Color> getColoresSecretos() {
 		return coloresSecretos;
 	}
-	
 
 	/**
 	 * @return the maximointentos
@@ -66,7 +66,7 @@ public class Controlador {
 	public void setMaximoIntentos(int maximointentos) {
 		this.maximoIntentos = maximointentos;
 	}
-	
+
 	/**
 	 * @return the maxColor
 	 */
@@ -87,7 +87,6 @@ public class Controlador {
 	public ArrayList<Casilla> getCasillasSecretas() {
 		return casillasSecretas;
 	}
-	
 
 	/**
 	 * @return the labelFinalizada
@@ -116,7 +115,7 @@ public class Controlador {
 	public void setComprobarBtn(JButton comprobarBtn) {
 		this.comprobarBtn = comprobarBtn;
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -125,12 +124,12 @@ public class Controlador {
 		// TODO Auto-generated method stub
 		return this.valor;
 	}
-	
+
 	public Color[] getColores() {
 		// TODO Auto-generated method stub
 		return this.colores;
 	}
-	
+
 	/**
 	 * @return the totalEncontrados
 	 */
@@ -171,7 +170,7 @@ public class Controlador {
 	 */
 	public void generarCasillasSecretas() {
 		for (int i = 0; i < 4; i++) {
-			int numRandom = (int) (Math.random() * (maxColor+1));
+			int numRandom = (int) (Math.random() * (maxColor + 1));
 			Casilla casillaSecreta = new Casilla(i, colores[numRandom], false);
 			casillasSecretas.add(casillaSecreta);
 		}
@@ -326,80 +325,110 @@ public class Controlador {
 //
 //		}
 //	}
-	
+
 //	public void comprobarPosicionCasilla() {
 //		
 //	}
 
 	/**
 	 * Loopear las casillas input y validarlas
+	 * 
 	 * @param casillasInput
 	 */
 	public void validarCasillas(ArrayList<Casilla> casillasInput) {
-		
+
 		totalPerfectos = 0;
 		totalEncontrados = 0;
-		// Reset casilla comprobada
+		// Reset casilla input comprobada con cada nuevo intento
+		for (int i = 0; i < casillasInput.size(); i++) {
+			Casilla casilla = casillasInput.get(i);
+			casilla.setComprobada(false);
+		}
+		// Reset casilla Secreta comprobada con cada nuevo intento
 		for (int i = 0; i < casillasSecretas.size(); i++) {
 			Casilla casilla = casillasSecretas.get(i);
 			casilla.setComprobada(false);
 		}
-		
-		// Loopear casillas Input
+		/*
+		 * 
+		 * 
+		 */
+		// Comprueba color y posición correcta de las parejas casillas de input y
+		// secreto de la misma posición.
 		for (int i = 0; i < casillasInput.size(); i++) {
+			Casilla casillaInput = casillasInput.get(i);
 			Color colorCasillaInput = casillasInput.get(i).getBackground();
 			Color colorCasillaSecreta = casillasSecretas.get(i).getBackground();
 			// Posicion y color correctos
 			if (colorCasillaInput.equals(colorCasillaSecreta)) {
 				casillasSecretas.get(i).setComprobada(true);
+				casillaInput.setComprobada(true);
 				totalPerfectos++;
-				
-			}else {
-				comprobarCasillasSecretas(colorCasillaInput);
+//				break;
 			}
-			
 		}
-		
+
+		// Comprueba si el color es correcto en otra posición del grupo de casillas
+		// secretas
+		for (int i = 0; i < casillasInput.size(); i++) {
+			Casilla casillaInput = casillasInput.get(i);
+			Color colorCasillaInput = casillasInput.get(i).getBackground();
+			// For grupo casillas secretas
+			for (int j = 0; j < casillasSecretas.size(); j++) {
+				Casilla casillaSecreta = casillasSecretas.get(j);
+				Color colorCasillaSecreta = casillaSecreta.getBackground();
+				if (!casillaSecreta.getComprobada() 
+						&& !casillaInput.getComprobada()
+						&& colorCasillaInput.equals(colorCasillaSecreta)) {
+					casillaSecreta.setComprobada(true);
+					totalEncontrados++;
+					// Una vez encontrado salir del loop;
+					break;
+				}
+			}
+		}
+
 		// Comprobar si has ganado
 		if (totalPerfectos >= 4) {
 			finalizarPartida();
 		}
-		
+
 	}
 
 	/**
 	 * Loopear las casillas secretas
 	 */
-	private void comprobarCasillasSecretas(Color colorCasillaInput) {
-		for (int i = 0; i < casillasSecretas.size(); i++) {
-			Color colorCasillaSecreta = casillasSecretas.get(i).getBackground();
-			boolean yacomprobada = casillasSecretas.get(i).getComprobada();
-			// Saltar loop si casilla ya encontrada
-			if (yacomprobada) {
-				continue;
-			}
-			if (!yacomprobada && colorCasillaInput.equals(colorCasillaSecreta)) {
-				casillasSecretas.get(i).setComprobada(true);
-				totalEncontrados++;
-				// Salir si se ha encontrado el color
-				break;
-			}
-		}
-		
-	}
-	
-	
+//	private void comprobarCasillasSecretas(Color colorCasillaInput) {
+//		for (int i = 0; i < casillasSecretas.size(); i++) {
+//			Color colorCasillaSecreta = casillasSecretas.get(i).getBackground();
+//			boolean yacomprobada = casillasSecretas.get(i).getComprobada();
+//			// Saltar loop si casilla ya encontrada
+//			if (yacomprobada) {
+//				continue;
+//			}
+//			if (!yacomprobada && colorCasillaInput.equals(colorCasillaSecreta)) {
+//				casillasSecretas.get(i).setComprobada(true);
+//				totalEncontrados++;
+//				// Salir si se ha encontrado el color
+//				break;
+//			}
+//		}
+//
+//	}
+
+	/**
+	 * Ejecutado al perder o ganar la partida
+	 */
 	public void finalizarPartida() {
 		labelFinalizada.setVisible(true);
 		comprobarBtn.setEnabled(false);
-		
+
+		// En caso de ganar
 		if (totalPerfectos >= 4) {
 			labelFinalizada.setText("Has ganado!");
 		}
-		
-		secretosPanel.setVisible(true);		
+		// Mostrar la combinación secreta de colores al finalizar
+		secretosPanel.setVisible(true);
 	}
-
-
 
 }
