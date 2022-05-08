@@ -1,13 +1,18 @@
 package masterMind_Games.MasterMind;
 
-/**
- * Hello world!
- *
- */
+import dificultad.Dificultad;
+import vistaJuego.Controlador;
+import vistaJuego.VistaJuego;
+
 public class mastermindApp 
 {
+	
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	
+		// Inicializar controlador
+		Controlador controlador = new Controlador();
+    	
+    	Dificultad.vistaDificultad(controlador);
     }
 }
