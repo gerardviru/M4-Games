@@ -2,14 +2,11 @@
 
 Falta foto diagrama
 
-### Organizacion en las Branches/Tags
+### Estructura Branches
 
-Branches creadas para el proyecto:
+- Branch 'menuDificultad'
 
-- [Features](https://github.com/gerardviru/M4-Games/tree/Features/MasterMind)
-- [MenuVistaJuego](https://github.com/gerardviru/M4-Games/tree/MenuVistaJuego/MasterMind)
-- VistaJuego
-- VistaJuegoObjetos
-- menuDificultad
-- menuDificultadPrueba
+En esta rama se ejecuta el menú Vista donde se selecciona  el nivel de dificultad que escoge el usuario, si no se escoge ningún nivel de dificultad, por defecto saldrá nivel principiante, igual que si el usuario selecciona el botón "Cancelar".
 
+
+![Captura](https://user-images.githubusercontent.com/97692045/167302908-70bbdcc2-6711-41f6-9936-7e9eeed22713.PNG)
