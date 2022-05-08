@@ -2,7 +2,7 @@
 
 Falta foto diagrama
 
-# Organizacion en las Branches/Tags
+## Organizacion en las Branches/Tags
 
 Branches creadas para el proyecto:
 
