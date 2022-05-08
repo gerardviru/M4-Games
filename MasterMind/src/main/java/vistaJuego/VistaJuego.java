@@ -19,6 +19,7 @@ public class VistaJuego extends JFrame {
 
 	private int nrIntento = 0;
 	private JPanel contentPane;
+	public VistaJuego vistaJuego;
 
 	/**
 	 * Launch the application.
@@ -54,7 +55,8 @@ public class VistaJuego extends JFrame {
 		setBounds(450, 200, 900, 700);
 		
 		// Añade barra menu
-		setJMenuBar(Menu.menuBar());
+		Menu menu = new Menu(this);
+		setJMenuBar(menu.getjMenu());
 		
 		// contentPane: el contenedor que engloba toda la ventana VistaJuego
 		contentPane = new JPanel();
