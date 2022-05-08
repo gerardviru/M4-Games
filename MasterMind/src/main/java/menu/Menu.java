@@ -65,9 +65,14 @@ public class Menu {
 		subPestanaComo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				JOptionPane.showMessageDialog(subPestanaComo,
-						"Cómo jugar a  Mastermind\nMasterMind es un juego dificíl de ingenio, en el cual un jugador intenta asdivinar el código que se le ocurre a su oponente.\n"
-								+ "1. El juego crea un código aleatorio de colores.\n" + "2. ghghghg"
-								+ "3. fggfhghfghfh " + "4. fdgfdgdfgdgg" + "");
+						"MasterMind, es un juego de ingenio, en el cual un jugador intenta adivinar la combinación de colores creada al azar.\n \n"
+								+ "1. El juego crea una combinación aleatoria de colores.\n" 
+								+ "2. Dependiendo de la dificultad elegida, se dispone de un número de intentos determinados para adivinarlo\n" 
+								+ "3. En cada intento se informa de que colores contiene la combinación creada al azar y de si están en la posicion correcta.\n"
+								+ "4. Una vez consumido un intento, mostrará un cuadrado negro siempre que coincida el color con la posición y un cuadrado blanco solo si coincide el color.\n"
+								+ "5. Al finalizar el número máximo de intentos, habrás perdido y se mostrará la combinación correcta.\n"
+								+ "6. Si antes de finalizar el número máximo de intentos, habrás ganado");
+								
 			}
 		});
 
@@ -76,8 +81,8 @@ public class Menu {
 		JMenuItem subPestanaAcerca = new JMenuItem("Acerca de ...");
 		subPestanaAcerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
-				JOptionPane.showMessageDialog(subPestanaAcerca, " Creado por:\n" + " # Constantin Vlad\n"
-						+ " # Gerard Viñuela\n" + " # Gerard Sanchez\n" + " # Aida Queralt");
+				JOptionPane.showMessageDialog(subPestanaAcerca, " Creado por:\n" + "  Constantin Vlad\n"
+						+ "  Gerard Viñuela\n" + "  Aida Queralt\n"  + "  Gerard Sanchez\n");
 			}
 		});
 
