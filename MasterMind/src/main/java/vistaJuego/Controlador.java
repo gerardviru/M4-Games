@@ -16,11 +16,11 @@ import javax.swing.border.EtchedBorder;
 
 public class Controlador {
 
-	private Color[] colores = { Color.magenta, Color.cyan, Color.yellow, Color.green, Color.gray };
+	private Color[] colores = { Color.magenta, Color.yellow, Color.cyan, Color.green, Color.ORANGE, Color.BLUE };
 	private ArrayList<Color> coloresSecretos = new ArrayList<Color>();
 	private ArrayList<Casilla> casillasSecretas = new ArrayList<Casilla>();
 	private int valor = -1;
-	private int maxColor = 4;
+	private int maxColor = 3;
 	private int uMovimiento = 40;
 	private boolean[] posicionesEncontradas = { false, false, false, false };
 	private int totalEncontrados = 0;
@@ -36,6 +36,7 @@ public class Controlador {
 	
 	public Controlador(int maximoIntentos, int maxColor) {
 		this.maximoIntentos = maximoIntentos;
+		// Variar segun el nivel
 		this.maxColor = maxColor;
 	}
 	
@@ -135,8 +136,8 @@ public class Controlador {
 	 * Genera la combinacion secreta de colores v2
 	 */
 	public void generarCasillasSecretas() {
-		for (int i = 0; i < maxColor + 1; i++) {
-			int numRandom = (int) (Math.random() * maxColor);
+		for (int i = 0; i < 4; i++) {
+			int numRandom = (int) (Math.random() * (maxColor+1));
 			Casilla casillaSecreta = new Casilla(i, colores[numRandom], false);
 			casillasSecretas.add(casillaSecreta);
 		}
