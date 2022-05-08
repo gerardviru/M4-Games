@@ -3,23 +3,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import java.awt.Window.Type;
 import javax.swing.JRadioButton;
+import vistaJuego.Controlador;
+import vistaJuego.VistaJuego;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.EventQueue;
-import java.awt.Dimension;
 
 public class Dificultad extends JFrame {
 	
 	private JPanel contentPane;
 
 
-	public static void dificultad() {
+	public static void vistaDificultad(Controlador controlador) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Dificultad frame = new Dificultad();
+					Dificultad frame = new Dificultad(controlador);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -28,7 +28,7 @@ public class Dificultad extends JFrame {
 		});
 	}
 	
-	public Dificultad() {
+	public Dificultad(Controlador controlador) {
 		
 		setTitle("Mastermind");
 		setBounds(800, 300, 450, 300);
@@ -54,14 +54,18 @@ public class Dificultad extends JFrame {
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
+			// Accion boton "ACEPTAR"
+			// Define la dificultad
 			public void actionPerformed(ActionEvent e) {
-				int dificultad = 0;
 				
 				if (radBtn2.isSelected()) {
-					dificultad = 1;
+//					controlador.setMaximoIntentos(8);
+					controlador.setMaxColor(4);
 				} else if(radBtn3.isSelected()) {
-					dificultad = 2;
+//					controlador.setMaximoIntentos(6);
+					controlador.setMaxColor(5);
 				}
+				VistaJuego.crearVistaJuego(controlador);
 				dispose();
 			}
 		});
@@ -70,7 +74,9 @@ public class Dificultad extends JFrame {
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
+			// Accion boton "CANCELAR"
 			public void actionPerformed(ActionEvent e) {
+				VistaJuego.crearVistaJuego(controlador);
 				dispose();
 			}
 		});

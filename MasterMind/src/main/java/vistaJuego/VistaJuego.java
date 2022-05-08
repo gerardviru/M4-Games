@@ -23,11 +23,11 @@ public class VistaJuego extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void VistaJuego() {
+	public static void crearVistaJuego(Controlador controlador) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VistaJuego frame = new VistaJuego();
+					VistaJuego frame = new VistaJuego(controlador);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,13 +37,9 @@ public class VistaJuego extends JFrame {
 	}
 
 	/**
-	 * Constructor. Create the frame.
+	 * Create the frame.
 	 */
-	public VistaJuego() {
-
-		// Inicializar controlador
-		Controlador controlador = new Controlador();
-
+	public VistaJuego(Controlador controlador) {
 		/*
 		 * Crear la combinacion secreta de colores en un array. Utilizar el index del
 		 * array para saber la posición
@@ -86,7 +82,7 @@ public class VistaJuego extends JFrame {
 		JPanel secretosPanel = new JPanel();
 		secretosPanel.setLayout(null);
 		secretosPanel.setBounds(618, 248, 245, 74);
-		secretosPanel.setVisible(false);
+//		secretosPanel.setVisible(false);
 		controlador.secretosPanel = secretosPanel;
 		
 		contentPane.add(secretosPanel);
@@ -127,9 +123,10 @@ public class VistaJuego extends JFrame {
 		
 		for (int i = 0; i < 4; i++) {
 			insertarPanel.setLayout(null);
-			Casilla casilla = new Casilla(i, Color.WHITE, true);
+			Casilla casilla = new Casilla(i, Color.WHITE, controlador.getValor(), controlador.getMaxColor(), controlador.getColores());
 			casilla.setBounds(55 *i+1 + 45, 11, 21, 20);
 			insertarPanel.add(casilla);
+			// Array casillas para comparar
 			casillasInput.add(casilla);
 		}	
 
@@ -163,6 +160,22 @@ public class VistaJuego extends JFrame {
 		labelIntentos.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		labelIntentos.setBounds(618, 11, 245, 59);
 		contentPane.add(labelIntentos);
+		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for (int i = 0; i < controlador.getCasillasSecretas().size(); i++) {
+					System.out.println(
+							controlador.getCasillasSecretas().get(i).getBackground()
+							);
+				}
+				System.out.println("--------------");
+				System.out.println(controlador.getTotalEncontrados());
+				System.out.println(controlador.getTotalPerfectos());
+			}
+		});
+		btnNewButton.setBounds(646, 593, 89, 23);
+		contentPane.add(btnNewButton);
 		
 		/*
 		 * Acción del botón 

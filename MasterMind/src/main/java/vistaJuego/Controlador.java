@@ -34,11 +34,11 @@ public class Controlador {
 	public Controlador() {
 	}
 	
-	public Controlador(int maximoIntentos, int maxColor) {
-		this.maximoIntentos = maximoIntentos;
-		// Variar segun el nivel
-		this.maxColor = maxColor;
-	}
+//	public Controlador(int maximoIntentos, int maxColor) {
+//		this.maximoIntentos = maximoIntentos;
+//		// Variar segun el nivel
+//		this.maxColor = maxColor;
+//	}
 	
 	/**
 	 * Set casillas input
@@ -65,6 +65,20 @@ public class Controlador {
 	 */
 	public void setMaximoIntentos(int maximointentos) {
 		this.maximoIntentos = maximointentos;
+	}
+	
+	/**
+	 * @return the maxColor
+	 */
+	public int getMaxColor() {
+		return maxColor;
+	}
+
+	/**
+	 * @param maxColor the maxColor to set
+	 */
+	public void setMaxColor(int maxColor) {
+		this.maxColor = maxColor;
 	}
 
 	/**
@@ -102,6 +116,34 @@ public class Controlador {
 	public void setComprobarBtn(JButton comprobarBtn) {
 		this.comprobarBtn = comprobarBtn;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getValor() {
+		// TODO Auto-generated method stub
+		return this.valor;
+	}
+	
+	public Color[] getColores() {
+		// TODO Auto-generated method stub
+		return this.colores;
+	}
+	
+	/**
+	 * @return the totalEncontrados
+	 */
+	public int getTotalEncontrados() {
+		return totalEncontrados;
+	}
+
+	/**
+	 * @return the totalPerfectos
+	 */
+	public int getTotalPerfectos() {
+		return totalPerfectos;
+	}
 
 	public void cambiarColor(int mouseButton, Component casilla) {
 
@@ -118,20 +160,12 @@ public class Controlador {
 			else
 				valor--;
 		}
+		System.out.println("MaxColor:" + maxColor);
+		System.out.println("valor:" + valor);
 		casilla.setBackground(colores[valor]);
 
 	}
 
-//	/**
-//	 * Genera la combinacion secreta de colores
-//	 */
-//	public void generarColoresSecretos() {
-//		for (int i = 0; i < maxColor + 1; i++) {
-//			int numRandom = (int) (Math.random() * maxColor);
-//			coloresSecretos.add(colores[numRandom]);
-//		}
-//		System.out.println(coloresSecretos);
-//	}
 	/**
 	 * Genera la combinacion secreta de colores v2
 	 */
@@ -141,7 +175,6 @@ public class Controlador {
 			Casilla casillaSecreta = new Casilla(i, colores[numRandom], false);
 			casillasSecretas.add(casillaSecreta);
 		}
-		System.out.println(casillasSecretas);
 	}
 
 	/**
@@ -323,7 +356,6 @@ public class Controlador {
 				
 			}else {
 				comprobarCasillasSecretas(colorCasillaInput);
-				
 			}
 			
 		}
@@ -342,6 +374,10 @@ public class Controlador {
 		for (int i = 0; i < casillasSecretas.size(); i++) {
 			Color colorCasillaSecreta = casillasSecretas.get(i).getBackground();
 			boolean yacomprobada = casillasSecretas.get(i).getComprobada();
+			// Saltar loop si casilla ya encontrada
+			if (yacomprobada) {
+				continue;
+			}
 			if (!yacomprobada && colorCasillaInput.equals(colorCasillaSecreta)) {
 				casillasSecretas.get(i).setComprobada(true);
 				totalEncontrados++;
@@ -363,6 +399,7 @@ public class Controlador {
 		
 		secretosPanel.setVisible(true);		
 	}
+
 
 
 }

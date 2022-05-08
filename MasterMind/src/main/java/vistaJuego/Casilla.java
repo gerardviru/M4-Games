@@ -9,8 +9,13 @@ public class Casilla extends JEditorPane {
 	private Color color;
 	private boolean comprobada = false;
 	
+	private int valor = -1;
+	private int maxColor;
+	private Color[] colores;
+	
 	/**
-	 * Contructor
+	 * Contructor para las casillas que no deben cambiar de color.
+	 * 
 	 * @param posicion - La posición de la casilla
 	 * @param color - El color del fondo de la casilla
 	 * @param editable - Determina si tendra MouseListener y se podrá cambiar el fondo
@@ -21,10 +26,25 @@ public class Casilla extends JEditorPane {
 		this.setBackground(color);
 		this.setEditable(false);
 		
-		if (editable) {
-			this.addMouseListener(new CasillaMouseListener());			
-		}
 	}
+	
+	/**
+	 * Contructor para las casillas input que cambian de color al hacer click con el raton;
+	 * 
+	 * @param posicion
+	 * @param color
+	 * @param valor
+	 * @param maxColor
+	 * @param colores
+	 */
+	public Casilla(int posicion, Color color, int valor, int maxColor, Color[] colores) {
+		this.posicion = posicion;
+		this.color = color;
+		this.setBackground(color);
+		this.setEditable(false);
+		this.addMouseListener(new CasillaMouseListener(valor, maxColor, colores));			
+	}
+	
 
 	/**
 	 * @return the posicion
