@@ -1,13 +1,11 @@
 package masterMind_Games.MasterMind;
 
-/**
- * Hello world!
- *
- */
+import vistaJuego.VistaJuego;
+
 public class mastermindApp 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	VistaJuego.VistaJuego();
     }
 }

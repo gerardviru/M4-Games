@@ -7,7 +7,6 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Component;
-
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -15,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import menu.Menu;
 
 public class VistaJuego extends JFrame {
 
@@ -57,6 +57,7 @@ public class VistaJuego extends JFrame {
 		setTitle("MasterMind");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(450, 200, 900, 700);
+		setJMenuBar(Menu.menuBar());
 		
 		// contentPane: el contenedor que engloba toda la ventana VistaJuego
 		contentPane = new JPanel();
