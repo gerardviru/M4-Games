@@ -105,6 +105,16 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 ![Captura de pantalla 2022-05-08 210817](https://user-images.githubusercontent.com/97692045/167311846-f8d90f78-de7c-49f4-8b22-5027a02f014f.jpg)
 
 <details>
+  <summary>Colores disponibles</summary>
+<br>
+  <p>Se muestran todos los colores disponibles</p>
+  
+</details>
+</br>
+
+![Captura de pantalla 2022-05-08 212028](https://user-images.githubusercontent.com/97692045/167312304-b9a532d6-de36-4933-9829-901b9390bab5.jpg)
+
+<details>
   <summary>Botón Comprobar</summary>
 <br>
   <p>Realiza la comprobación tanto del color, como la posicion </p>
@@ -152,5 +162,42 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 ```
 </details>
 </br>
-![Captura de pantalla 2022-05-08 211419](https://user-images.githubusercontent.com/97692045/167312051-bba6f635-3faa-4dab-b10f-b0062af28b9a.jpg)
+
+<details>
+  <summary>Casillas Blancas</summary>
+<br>
+  <p>Se crea aleatoriamente una combinación de colores, que el usuario tiene que intentar resolver</p>
+  
+ ```java
+ 	public void mostrarAciertos(JPanel panelPadre, int nrIntento) {
+		JPanel panelValidados = new JPanel();
+		panelValidados.setLayout(null);
+		panelValidados.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
+		panelValidados.setBounds(385, 40 * nrIntento, 220, 40);
+		// Mostrar con negro los colores acertados y en la posicion correcta
+		for (int i = 0; i < totalPerfectos; i++) {
+			JEditorPane comp = new JEditorPane();
+			comp.setBounds(40 * i + 40, 11, 20, 20);
+			comp.setBackground(Color.BLACK);
+			comp.setEnabled(false);
+			panelValidados.add(comp);
+		}
+		// Mostrar con blanco solo los colores acertados pero no en la posicion correcta
+		for (int i = 0; i < totalEncontrados; i++) {
+			JEditorPane comp = new JEditorPane();
+			comp.setBounds(40 * (i + totalPerfectos) + 40, 11, 20, 20);
+			comp.setBackground(Color.WHITE);
+			comp.setEnabled(false);
+			panelValidados.add(comp);
+		}
+
+		panelPadre.add(panelValidados);
+
+	}
+
+```
+</details>
+</br>
+
+
 
