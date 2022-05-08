@@ -1,4 +1,4 @@
-package Dificultad;
+package dificultad;
 
 public class mainApp {
 
