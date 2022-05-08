@@ -84,6 +84,8 @@ public class VistaJuego extends JFrame {
 		JPanel secretosPanel = new JPanel();
 		secretosPanel.setLayout(null);
 		secretosPanel.setBounds(618, 248, 245, 74);
+//		secretosPanel.setVisible(false);
+		controlador.secretosPanel = secretosPanel;
 		
 		contentPane.add(secretosPanel);
 

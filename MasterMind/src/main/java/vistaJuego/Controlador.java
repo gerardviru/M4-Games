@@ -20,17 +20,23 @@ public class Controlador {
 	private ArrayList<Color> coloresSecretos = new ArrayList<Color>();
 	private ArrayList<Casilla> casillasSecretas = new ArrayList<Casilla>();
 	private int valor = -1;
-	private int maxColor = 3;
+	private int maxColor = 4;
 	private int uMovimiento = 40;
 	private boolean[] posicionesEncontradas = { false, false, false, false };
 	private int totalEncontrados = 0;
 	private int totalPerfectos = 0;
 	private ArrayList<Casilla> casillasInput;
-	private int maximoIntentos = 5;
+	private int maximoIntentos = 10;
 	private JLabel labelFinalizada;
 	private JButton comprobarBtn;
+	public JPanel secretosPanel;
 
 	public Controlador() {
+	}
+	
+	public Controlador(int maximoIntentos, int maxColor) {
+		this.maximoIntentos = maximoIntentos;
+		this.maxColor = maxColor;
 	}
 	
 	/**
@@ -349,9 +355,12 @@ public class Controlador {
 	public void finalizarPartida() {
 		labelFinalizada.setVisible(true);
 		comprobarBtn.setEnabled(false);
+		
 		if (totalPerfectos >= 4) {
 			labelFinalizada.setText("Has ganado!");
 		}
+		
+		secretosPanel.setVisible(true);		
 	}
 
 
