@@ -152,4 +152,5 @@ Es dónde se representa la interfaz gráfica para el usuario. Se muestra inicial
 ```
 </details>
 </br>
-![Captura de pantalla 2022-05-08 211419](https://user-images.githubusercontent.com/97692045/167312032-f8d59edc-8873-4709-80b3-0a2899937a4b.jpg)
+![Captura de pantalla 2022-05-08 211419](https://user-images.githubusercontent.com/97692045/167312051-bba6f635-3faa-4dab-b10f-b0062af28b9a.jpg)
+
