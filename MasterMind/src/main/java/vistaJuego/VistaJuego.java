@@ -56,6 +56,8 @@ public class VistaJuego extends JFrame {
 		setTitle("MasterMind");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(450, 200, 900, 700);
+		
+		// Añade barra menu
 		setJMenuBar(Menu.menuBar());
 		
 		// contentPane: el contenedor que engloba toda la ventana VistaJuego

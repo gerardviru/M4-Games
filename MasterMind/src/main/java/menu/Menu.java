@@ -3,6 +3,7 @@ package menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -21,12 +22,10 @@ public class Menu {
 		
 		//Item para crear una nueva partida
 		JMenuItem subPestanaNuevo = new JMenuItem("Nuevo Juego");
-//		mntmNewMenuItem.setIcon(new ImageIcon(archivoAyuda.class.getResource("/javax/swing/plaf/metal/icons/ocean/file.gif")));
 		pestanaArchivo.add(subPestanaNuevo);
 		
 		//Item SALIR con un listener para salir del programa
 		JMenuItem subPestanaSalir = new JMenuItem("Salir");
-//		mntmNewMenuItem_1.setIcon(new ImageIcon(archivoAyuda.class.getResource("/javax/swing/plaf/metal/icons/ocean/error.png")));
 		subPestanaSalir.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent ev) {
 	                System.exit(0);
@@ -39,7 +38,6 @@ public class Menu {
 		menuBar.add(pestanaAyuda);
 		
 		JMenuItem subPestanaComo = new JMenuItem("¿ Como jugar ?");
-//		mntmNewMenuItem_2.setIcon(new ImageIcon(archivoAyuda.class.getResource("/javax/swing/plaf/metal/icons/ocean/question.png")));
 		subPestanaComo.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent ev) {
 	        	JOptionPane.showMessageDialog(subPestanaComo, "Cómo jugar a  Mastermind\nMasterMind es un juego dificíl de ingenio, en el cual un jugador intenta asdivinar el código que se le ocurre a su oponente.\n"
@@ -54,7 +52,6 @@ public class Menu {
 		pestanaAyuda.add(subPestanaComo);
 		
 		JMenuItem subPestanaAcerca = new JMenuItem("Acerca de ...");
-//		mntmNewMenuItem_3.setIcon(new ImageIcon(archivoAyuda.class.getResource("/com/sun/java/swing/plaf/windows/icons/Inform.gif")));
 		subPestanaAcerca.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent ev) {
 	        	JOptionPane.showMessageDialog(subPestanaAcerca, " Creado por:\n"
